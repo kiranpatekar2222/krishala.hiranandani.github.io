@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arcadia &amp; Icon | Krisala Hiranandani Township — Pune</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #111; overflow-x: hidden; }
+    a { text-decoration: none; }
+    img { display: block; }
+    .serif { font-family: 'Playfair Display', serif; }
+
+    /* ── Colours ── */
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #F0D070;
+      --navy: #08081e;
+      --navy2: #12122a;
+      --gold-grad: linear-gradient(135deg, #C9A84C 0%, #F0D070 50%, #C9A84C 100%);
+    }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 0 40px;
+      transition: background .35s, backdrop-filter .35s, border-color .35s;
+      border-bottom: 1px solid transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(8,8,25,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-color: rgba(201,168,76,.18);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo-main { font-family: 'Playfair Display',serif; color: var(--gold); font-size: 20px; font-weight: 700; letter-spacing: 1px; line-height: 1.1; }
+    .nav-logo-sub { color: rgba(255,255,255,.38); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,.78); font-size: 14px; font-weight: 500; letter-spacing: .4px; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .btn-gold {
+      background: var(--gold-grad); color: var(--navy); font-weight: 700; border: none; cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 4px 20px rgba(201,168,76,.38);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,.55); }
+    .nav-cta { padding: 10px 22px; border-radius: 8px; font-size: 13px; font-family: inherit; font-weight: 700; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(8,8,30,.88) 0%, rgba(8,8,25,.60) 55%, rgba(4,4,18,.82) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80') center/cover no-repeat fixed;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* Ticker */
+    .ticker-wrap {
+      position: absolute; top: 72px; left: 0; right: 0;
+      background: rgba(201,168,76,.09);
+      border-top: 1px solid rgba(201,168,76,.28);
+      border-bottom: 1px solid rgba(201,168,76,.28);
+      padding: 9px 0; overflow: hidden;
+    }
+    .ticker-track {
+      display: inline-block; white-space: nowrap;
+      animation: ticker 38s linear infinite;
+      color: var(--gold); font-size: 12px; letter-spacing: 2.5px; font-weight: 600;
+    }
+    @keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+    .hero-content { text-align: center; max-width: 860px; padding: 140px 24px 80px; position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.38);
+      border-radius: 100px; padding: 7px 22px; margin-bottom: 28px;
+    }
+    .hero-badge span { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+    .hero-h1 { font-family: 'Playfair Display',serif; color: #fff; font-size: clamp(38px,6.5vw,80px); font-weight: 800; line-height: 1.07; margin-bottom: 24px; }
+    .hero-h1 em { color: var(--gold); font-style: italic; }
+    .hero-p { color: rgba(255,255,255,.72); font-size: clamp(15px,1.8vw,18px); line-height: 1.78; margin-bottom: 44px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-p strong { color: var(--gold-light); }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+    .btn-outline-hero {
+      padding: 16px 42px; border-radius: 10px; font-size: 16px; font-weight: 600; font-family: inherit;
+      background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); cursor: pointer;
+      transition: border-color .25s, color .25s;
+    }
+    .btn-outline-hero:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-btn-gold { padding: 16px 42px; border-radius: 10px; font-size: 16px; }
+    /* Stats */
+    .hero-stats {
+      display: flex; justify-content: center;
+      background: rgba(255,255,255,.06); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.10); border-radius: 18px;
+      overflow: hidden; max-width: 680px; margin: 0 auto;
+    }
+    .hero-stat { flex: 1; padding: 22px 10px; text-align: center; border-right: 1px solid rgba(255,255,255,.10); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-val { font-family: 'Playfair Display',serif; color: var(--gold); font-size: clamp(24px,3.5vw,34px); font-weight: 700; line-height: 1; }
+    .hero-stat-val sup { font-size: .45em; font-weight: 400; }
+    .hero-stat-lbl { color: rgba(255,255,255,.48); font-size: 12px; letter-spacing: 1px; margin-top: 6px; }
+    /* Scroll indicator */
+    .scroll-ind { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); text-align: center; animation: bounce 2.2s ease-in-out infinite; }
+    .scroll-ind-txt { color: rgba(255,255,255,.32); font-size: 10px; letter-spacing: 3px; margin-bottom: 8px; }
+    .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,.7), transparent); margin: 0 auto; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-10px)} }
+
+    /* ── PARTNERS ── */
+    #partners {
+      background: var(--navy); padding: 36px 24px; text-align: center;
+      border-bottom: 1px solid rgba(201,168,76,.14);
+    }
+    .partners-label { color: rgba(255,255,255,.32); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 22px; }
+    .partners-row { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .partner-item { display: flex; align-items: center; gap: 12px; }
+    .partner-icon { width: 42px; height: 42px; background: var(--gold-grad); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .partner-icon span { color: var(--navy); font-weight: 800; font-size: 18px; }
+    .partner-name { font-family: 'Playfair Display',serif; color: #fff; font-size: 17px; font-weight: 700; letter-spacing: 2px; }
+    .partner-sub { color: var(--gold); font-size: 10px; letter-spacing: 1.5px; }
+    .partner-x { color: rgba(201,168,76,.35); font-size: 26px; font-weight: 300; }
+
+    /* ── SECTION COMMON ── */
+    .section-label { color: var(--gold); font-size: 11px; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+    .section-h2 { font-family: 'Playfair Display',serif; font-size: clamp(30px,4vw,52px); font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
+    .divider { height: 1px; background: linear-gradient(90deg,transparent,var(--gold),transparent); width: 80px; margin: 0 auto; }
+    .section-sub { font-size: 16px; max-width: 560px; margin: 20px auto 0; }
+
+    /* ── HIGHLIGHTS ── */
+    #overview { background: #0c0c22; padding: 96px 24px; }
+    #overview .section-h2 { color: #fff; }
+    #overview .section-sub { color: rgba(255,255,255,.48); }
+    .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 22px; max-width: 1200px; margin: 0 auto; }
+    .h-card {
+      background: linear-gradient(135deg, #12122a 0%, #1a1a3e 100%);
+      border: 1px solid rgba(201,168,76,.22); border-radius: 18px; padding: 32px 28px;
+      transition: transform .3s, border-color .3s, box-shadow .3s; cursor: default;
+    }
+    .h-card:hover { transform: translateY(-7px); border-color: var(--gold); box-shadow: 0 18px 48px rgba(201,168,76,.18); }
+    .h-card-icon { font-size: 38px; margin-bottom: 16px; }
+    .h-card-title { color: var(--gold); font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .h-card-desc { color: rgba(255,255,255,.58); font-size: 14px; line-height: 1.75; }
+
+    /* ── PROPERTIES ── */
+    #properties { background: #f5f3ee; padding: 96px 24px; }
+    #properties .section-h2 { color: var(--navy); }
+    #properties .section-sub { color: #6b7280; }
+    #properties .section-h2 span { color: var(--gold); }
+    .tabs-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 50px; }
+    .tab-btn {
+      padding: 11px 26px; border-radius: 100px; border: none; cursor: pointer;
+      font-size: 14px; font-weight: 600; font-family: inherit;
+      background: #fff; color: #6b7280;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      transition: all .3s;
+    }
+    .tab-btn.active { background: var(--gold-grad); color: var(--navy); box-shadow: 0 4px 18px rgba(201,168,76,.32); }
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; max-width: 1200px; margin: 0 auto; }
+    .prop-img-wrap { border-radius: 20px; overflow: hidden; position: relative; margin-bottom: 24px; }
+    .prop-img-wrap img { width: 100%; height: 340px; object-fit: cover; }
+    .prop-tag { position: absolute; top: 14px; left: 14px; color: #fff; padding: 5px 14px; border-radius: 100px; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
+    .prop-desc { color: #4b5563; font-size: 15px; line-height: 1.75; margin-bottom: 22px; }
+    .prop-details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .prop-detail { display: flex; align-items: flex-start; gap: 10px; }
+    .check-dot { width: 22px; height: 22px; background: var(--gold-grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-size: 11px; font-weight: 800; color: var(--navy); }
+    .prop-detail-txt { color: #374151; font-size: 14px; font-weight: 500; line-height: 1.4; }
+    .prop-h3 { font-family: 'Playfair Display',serif; color: var(--navy); font-size: 28px; font-weight: 700; margin-bottom: 22px; }
+    .price-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+    .price-card {
+      border-radius: 16px; padding: 22px 26px;
+      border: 2px solid #e5e7eb; background: #fff;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      position: relative;
+    }
+    .price-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 14px 40px rgba(0,0,0,.10); }
+    .price-card.featured { background: linear-gradient(135deg,#0a0a1e,#1a1a3e); border-color: var(--gold); box-shadow: 0 10px 36px rgba(201,168,76,.22); }
+    .pc-popular { position: absolute; top: 12px; right: 12px; background: var(--gold-grad); color: var(--navy); font-size: 9px; font-weight: 800; padding: 4px 10px; border-radius: 100px; letter-spacing: 1.5px; }
+    .pc-row { display: flex; justify-content: space-between; align-items: center; }
+    .pc-config { color: var(--gold); font-size: 17px; font-weight: 700; }
+    .pc-area { color: #9ca3af; font-size: 13px; margin-top: 3px; }
+    .pc-area-feat { color: rgba(255,255,255,.55); font-size: 13px; margin-top: 3px; }
+    .pc-price { font-family: 'Playfair Display',serif; font-size: 24px; font-weight: 700; color: var(--navy); }
+    .pc-price-feat { font-family: 'Playfair Display',serif; font-size: 24px; font-weight: 700; color: var(--gold-light); }
+    .savings-box { background: linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.05)); border: 1px solid rgba(201,168,76,.32); border-radius: 14px; padding: 18px; margin-bottom: 18px; }
+    .savings-label { color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: 2px; margin-bottom: 6px; }
+    .savings-txt { color: #374151; font-size: 14px; line-height: 1.6; }
+    .prop-cta { display: block; width: 100%; padding: 15px; border-radius: 12px; font-size: 15px; font-family: inherit; text-align: center; margin-bottom: 10px; }
+    .prop-note { text-align: center; color: #9ca3af; font-size: 11px; }
+
+    /* ── AMENITIES ── */
+    #amenities { background: #fff; padding: 96px 24px; }
+    #amenities .section-h2 { color: var(--navy); }
+    #amenities .section-h2 span { color: var(--gold); }
+    .amenities-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .amenity-card { border-radius: 20px; overflow: hidden; box-shadow: 0 4px 22px rgba(0,0,0,.09); transition: transform .35s, box-shadow .35s; background: #f9f9f9; }
+    .amenity-card:hover { transform: translateY(-8px); box-shadow: 0 20px 55px rgba(0,0,0,.15); }
+    .amenity-img-wrap { overflow: hidden; }
+    .amenity-card img { width: 100%; height: 220px; object-fit: cover; transition: transform .4s; }
+    .amenity-card:hover img { transform: scale(1.07); }
+    .amenity-body { padding: 20px 22px 24px; }
+    .amenity-title { color: var(--navy); font-size: 17px; font-weight: 700; margin-bottom: 7px; }
+    .amenity-desc { color: #6b7280; font-size: 13.5px; line-height: 1.65; }
+
+    /* ── LOCATION ── */
+    #location { background: #08081e; padding: 96px 24px; }
+    .location-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    #location .section-h2 { color: #fff; }
+    #location .section-h2 span { color: var(--gold); }
+    .location-desc { color: rgba(255,255,255,.55); font-size: 16px; line-height: 1.8; margin-bottom: 38px; }
+    .conn-cards { display: flex; flex-direction: column; gap: 14px; }
+    .conn-card { display: flex; align-items: center; gap: 18px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 18px 22px; transition: border-color .25s, background .25s; }
+    .conn-card:hover { border-color: rgba(201,168,76,.5); background: rgba(201,168,76,.06); }
+    .conn-icon { font-size: 26px; }
+    .conn-label { color: rgba(255,255,255,.52); font-size: 12px; margin-bottom: 4px; }
+    .conn-time { font-size: 20px; font-weight: 700; }
+    .loc-img-wrap { border-radius: 22px; overflow: hidden; border: 1px solid rgba(201,168,76,.28); margin-bottom: 14px; }
+    .loc-img-wrap img { width: 100%; height: 400px; object-fit: cover; display: block; }
+    .loc-address { background: rgba(201,168,76,.09); border: 1px solid rgba(201,168,76,.28); border-radius: 12px; padding: 14px 18px; display: flex; gap: 12px; align-items: center; }
+    .loc-address-icon { font-size: 22px; }
+    .loc-address-label { color: var(--gold); font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+    .loc-address-val { color: rgba(255,255,255,.65); font-size: 14px; }
+
+    /* ── BENEFITS ── */
+    #benefits { background: var(--gold-grad); padding: 68px 24px; text-align: center; }
+    #benefits .section-label { color: rgba(10,10,30,.65); }
+    .benefits-h2 { font-family: 'Playfair Display',serif; color: var(--navy); font-size: clamp(26px,4vw,44px); font-weight: 800; margin-bottom: 44px; line-height: 1.2; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; max-width: 1100px; margin: 0 auto; }
+    .benefit-card { background: rgba(10,10,30,.14); border-radius: 18px; padding: 28px 20px; border: 1px solid rgba(10,10,30,.10); }
+    .benefit-icon { font-size: 40px; margin-bottom: 14px; }
+    .benefit-label { color: var(--navy); font-size: 14px; font-weight: 600; margin-bottom: 8px; opacity: .75; }
+    .benefit-saving { font-family: 'Playfair Display',serif; color: var(--navy); font-size: 26px; font-weight: 800; }
+    .benefits-note { color: rgba(10,10,30,.52); font-size: 11px; margin-top: 26px; }
+
+    /* ── FORM ── */
+    #contact { background: #f5f3ee; padding: 96px 24px; }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1.15fr; gap: 60px; align-items: center; max-width: 980px; margin: 0 auto; }
+    #contact .section-h2 { color: var(--navy); }
+    #contact .section-h2 span { color: var(--gold); }
+    .contact-desc { color: #6b7280; font-size: 16px; line-height: 1.78; margin-bottom: 38px; }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .cinfo-item { display: flex; gap: 16px; align-items: center; }
+    .cinfo-icon { width: 44px; height: 44px; background: var(--gold-grad); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .cinfo-label { color: #9ca3af; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-bottom: 2px; }
+    .cinfo-val { color: #111827; font-size: 15px; font-weight: 500; }
+    .form-card { background: #fff; border-radius: 24px; padding: 38px 36px; box-shadow: 0 22px 60px rgba(0,0,0,.09); border: 1px solid rgba(201,168,76,.16); }
+    .form-title { font-family: 'Playfair Display',serif; color: var(--navy); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .form-sub { color: #9ca3af; font-size: 13px; margin-bottom: 26px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; color: #374151; font-size: 12px; font-weight: 700; margin-bottom: 7px; letter-spacing: .5px; }
+    .form-input {
+      width: 100%; padding: 13px 16px; border-radius: 10px; border: 1.5px solid #e5e7eb;
+      font-size: 14px; font-family: inherit; color: #111827; background: #fafafa;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,.12); }
+    .form-submit { width: 100%; padding: 15px; border-radius: 12px; font-size: 15px; font-family: inherit; margin-bottom: 10px; }
+    .form-secure { text-align: center; color: #9ca3af; font-size: 11px; }
+    .form-success { text-align: center; padding: 36px 0; }
+    .success-icon { font-size: 62px; margin-bottom: 20px; }
+    .success-h3 { font-family: 'Playfair Display',serif; color: var(--navy); font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+    .success-p { color: #6b7280; font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+    .success-reset { padding: 12px 30px; border-radius: 9px; font-size: 14px; font-family: inherit; }
+
+    /* ── FOOTER ── */
+    footer { background: #06060f; border-top: 1px solid rgba(201,168,76,.16); padding: 56px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
+    .footer-logo { font-family: 'Playfair Display',serif; color: var(--gold); font-size: 20px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+    .footer-logo-sub { color: rgba(255,255,255,.28); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-about { color: rgba(255,255,255,.42); font-size: 14px; line-height: 1.8; max-width: 340px; margin-bottom: 20px; }
+    .footer-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .footer-tag { background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.28); color: var(--gold); padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+    .footer-col-title { color: #fff; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; }
+    .footer-link { display: block; color: rgba(255,255,255,.38); font-size: 14px; margin-bottom: 11px; transition: color .2s; }
+    .footer-link:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { color: rgba(255,255,255,.24); font-size: 12px; }
+    .footer-disc { color: rgba(255,255,255,.20); font-size: 11px; max-width: 540px; text-align: right; }
+
+    /* ── FLOATING CTA ── */
+    #float-cta {
+      position: fixed; bottom: 28px; right: 28px; z-index: 1000;
+      padding: 13px 24px; border-radius: 50px; font-size: 14px; font-family: inherit;
+      display: flex; align-items: center; gap: 8px;
+      animation: glow 2.5s ease-in-out infinite;
+    }
+    @keyframes glow { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.45)} 50%{box-shadow:0 0 0 18px rgba(201,168,76,0)} }
+
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+
+    /* ── Fade-in / Slide-up base ── */
+    [data-anim] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .75s cubic-bezier(.25,.46,.45,.94),
+                  transform .75s cubic-bezier(.25,.46,.45,.94);
+    }
+    [data-anim="left"] { transform: translateX(-50px); }
+    [data-anim="right"] { transform: translateX(50px); }
+    [data-anim="scale"] { transform: scale(.88); }
+    [data-anim="fade"] { transform: none; }
+    [data-anim].visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* ── Stagger delays for children ── */
+    [data-stagger] > * { opacity: 0; transform: translateY(36px); transition: opacity .65s ease, transform .65s ease; }
+    [data-stagger].visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
+    [data-stagger].visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s; }
+    [data-stagger].visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.25s; }
+    [data-stagger].visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s; }
+    [data-stagger].visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
+    [data-stagger].visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
+    [data-stagger].visible > *:nth-child(7) { opacity:1; transform:none; transition-delay:.65s; }
+    [data-stagger].visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:.75s; }
+
+    /* ── Shimmer on gold buttons ── */
+    .btn-gold { position: relative; overflow: hidden; }
+    .btn-gold::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%,100%{left:-100%} 50%{left:130%} }
+
+    /* ── Hero text entrance ── */
+    .hero-badge   { animation: heroFade .8s .2s both; }
+    .hero-h1      { animation: heroFade .9s .4s both; }
+    .hero-p       { animation: heroFade .9s .6s both; }
+    .hero-btns    { animation: heroFade .9s .8s both; }
+    .hero-stats   { animation: heroFade .9s 1s both; }
+    @keyframes heroFade {
+      from { opacity:0; transform:translateY(28px); }
+      to   { opacity:1; transform:none; }
+    }
+
+    /* ── Ticker ── already animated; add a subtle gradient fade on edges */
+    .ticker-wrap::before, .ticker-wrap::after {
+      content:''; position:absolute; top:0; width:80px; height:100%; z-index:2; pointer-events:none;
+    }
+    .ticker-wrap::before { left:0; background:linear-gradient(to right,rgba(8,8,30,1),transparent); }
+    .ticker-wrap::after  { right:0; background:linear-gradient(to left,rgba(8,8,30,1),transparent); }
+
+    /* ── Floating CTA entrance ── */
+    #float-cta { animation: floatUp .6s 1.5s both; }
+    @keyframes floatUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+    /* ── Highlight card icon spin on hover ── */
+    .h-card:hover .h-card-icon { display:inline-block; animation: iconPop .35s ease; }
+    @keyframes iconPop { 0%{transform:scale(1)} 50%{transform:scale(1.35) rotate(-8deg)} 100%{transform:scale(1)} }
+
+    /* ── Amenity card image Ken-Burns ── */
+    .amenity-card img { animation: none; }
+    .amenity-card:hover img { animation: kenBurns 6s ease forwards; }
+    @keyframes kenBurns { from{transform:scale(1)} to{transform:scale(1.09) translateX(4px)} }
+
+    /* ── Stat counter pulse after count ── */
+    @keyframes statPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+    .stat-done { animation: statPulse .4s ease; }
+
+    /* ── Section heading underline draw ── */
+    .section-h2 { position: relative; }
+    .underline-draw {
+      display: block; height: 3px; width: 0; margin-top: 10px;
+      background: var(--gold-grad); border-radius: 2px;
+      transition: width 1s cubic-bezier(.25,.46,.45,.94);
+    }
+    [data-anim].visible .underline-draw,
+    [data-stagger].visible .underline-draw { width: 60px; }
+
+    /* ── Partners fade-in slide ── */
+    .partner-item { opacity:0; transform:translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .partner-x    { opacity:0; transition: opacity .6s ease; }
+    #partners.visible .partner-item:nth-child(1) { opacity:1;transform:none;transition-delay:.1s; }
+    #partners.visible .partner-x:nth-child(2)    { opacity:1;transition-delay:.25s; }
+    #partners.visible .partner-item:nth-child(3) { opacity:1;transform:none;transition-delay:.3s; }
+    #partners.visible .partner-x:nth-child(4)    { opacity:1;transition-delay:.45s; }
+    #partners.visible .partner-item:nth-child(5) { opacity:1;transform:none;transition-delay:.5s; }
+
+    /* ── Price card pop-in (stagger within tab) ── */
+    .price-card { opacity:0; transform:translateY(24px); transition:opacity .5s ease, transform .5s ease, border-color .3s, box-shadow .3s; }
+    .tab-content.active .price-card:nth-child(1) { opacity:1;transform:none;transition-delay:.1s; }
+    .tab-content.active .price-card:nth-child(2) { opacity:1;transform:none;transition-delay:.2s; }
+    .tab-content.active .price-card:nth-child(3) { opacity:1;transform:none;transition-delay:.3s; }
+    .tab-content.active .price-card:nth-child(4) { opacity:1;transform:none;transition-delay:.4s; }
+
+    /* ── Connectivity cards ── */
+    .conn-card { opacity:0; transform:translateX(-30px); transition:opacity .55s ease, transform .55s ease, border-color .25s, background .25s; }
+    #location.visible .conn-card:nth-child(1){opacity:1;transform:none;transition-delay:.1s}
+    #location.visible .conn-card:nth-child(2){opacity:1;transform:none;transition-delay:.22s}
+    #location.visible .conn-card:nth-child(3){opacity:1;transform:none;transition-delay:.34s}
+    #location.visible .conn-card:nth-child(4){opacity:1;transform:none;transition-delay:.46s}
+
+    /* ── Benefit cards bounce-in ── */
+    .benefit-card { opacity:0; transform:scale(.8) translateY(20px); transition:opacity .55s cubic-bezier(.34,1.56,.64,1), transform .55s cubic-bezier(.34,1.56,.64,1); }
+    #benefits.visible .benefit-card:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+    #benefits.visible .benefit-card:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
+    #benefits.visible .benefit-card:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
+    #benefits.visible .benefit-card:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
+
+    /* ── Contact info items ── */
+    .cinfo-item { opacity:0; transform:translateX(-24px); transition:opacity .5s ease,transform .5s ease; }
+    #contact.visible .cinfo-item:nth-child(1){opacity:1;transform:none;transition-delay:.1s}
+    #contact.visible .cinfo-item:nth-child(2){opacity:1;transform:none;transition-delay:.22s}
+    #contact.visible .cinfo-item:nth-child(3){opacity:1;transform:none;transition-delay:.34s}
+
+    /* ── Form card slide-in ── */
+    .form-card { opacity:0; transform:translateX(40px); transition:opacity .75s ease,transform .75s ease,box-shadow .3s; }
+    #contact.visible .form-card { opacity:1;transform:none;transition-delay:.2s; }
+
+    /* ── Footer fade ── */
+    footer .footer-grid > * { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+    footer.visible .footer-grid > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+    footer.visible .footer-grid > *:nth-child(2){opacity:1;transform:none;transition-delay:.18s}
+    footer.visible .footer-grid > *:nth-child(3){opacity:1;transform:none;transition-delay:.31s}
+
+    /* ── Parallax hero (JS-driven, class just hints) ── */
+    .hero-content { will-change: transform; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .tab-content.active { grid-template-columns: 1fr !important; }
+      .location-inner { grid-template-columns: 1fr !important; }
+      .contact-inner { grid-template-columns: 1fr !important; }
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .amenities-grid { grid-template-columns: 1fr 1fr !important; }
+      .benefits-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 600px) {
+      #navbar { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero-stats { flex-direction: column; }
+      .hero-stat { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.10); }
+      .amenities-grid { grid-template-columns: 1fr !important; }
+      .benefits-grid { grid-template-columns: 1fr 1fr !important; }
+      .form-row { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div>
+      <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACkAu4DASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAcIBQYDBAkCAf/EAF4QAAEDBAADBAQFChEICAcBAAECAwQABQYRBxIhCBMxQRQiUWEJFTJxgRYXIzdCUmJ1kbQkMzY4VnJzdHaChJWhsbKz0hhTVZKUtdHTJTQ1Q2ODk6ImOUV3o9Th8f/EABsBAQACAwEBAAAAAAAAAAAAAAABBAUGBwMC/8QALhEBAAICAQEGBAUFAAAAAAAAAAECAxEEBRITITVBwgYxYXFRcnOBsRQigpHR/9oADAMBAAIRAxEAPwCmVKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFSzw9u3BKHisFGW45cpl8R3npLzanO7V9kUUaAdCeiOUeHl9NRNSqnM4kcqkUm9q+O/7ZmJ/3Ho9sGacNu1ERP3ja52AYTwoyTGoeQ2bEIvocouFsS2ypfqrUg7ClKHik1wccMWxm0cHsgdtWO2mC6hlHK5HhttqH2VA8QN13+zP9pHH/wCU/nLtZfjRbHbxwxvdtYcQ24+0gJUvehpxJ66+auTRmzU6xGGclprXJrxmZ8Itpuvd47cGcnZiJmm/CPoolSpB+tVef9IwP/f/AMK3bEeyxxLyZlEmGmBFiOAFMmYtbSFA+BA5eYj3gEV2TTREEUq2UfsQ5WplJkZvZW3SPWSiM6tI+YnW/wAgrXsm7HPEu0tLfhT7Nd2Ujeoy1h3X7RSRv5gSaCt1KkR7hLfWXVtOzYTbiCUqQoLBSR4gjl6V8fWqvP8ApGB/7/8AhU6EfUqQfrVXn/SMD/3/APCtTyiySMfuqrdJdadcCEr5m960fnqNDFUrMYhaIF7vKYNxyG32BgoUozJqHFNAjwTptKlbPzVJHGDgJe+G/D62ZtMyKz3W3XOSyxF9CDvMoOtOOpX66U6HKj5+ooIfpSuWHGfmS2YkVpb0h9xLbTaBtS1KOgAPaSaDipW1cR+HmY8O7jFgZjZHbW/LZ79gKcQ4lafA6UgkbB6Eb2PpFarQKUpQKUpQKUpQKUpQKUpQKUpQKV38fgxrleYsGZdItqYeXyrmSUrLTI++UEAq18wNTK52b7o7wuuPEa05vjl3sUKK/I54qJAU73W+ZKQttPXadddUEF0pSgUpSgUpSgUrb8g4Z5zYMGtmbXfHpEWwXMpESWpaDz8yeZBKQSpIUASCoDfl5VqFApSlApSrEcAOy1lOe9xe8s9IxvHF6WnmRqXKT/4aFD1EkfdqHmCEqFBXelX/AP8AIq4Wf6fzP/bI3/69azmXZf4K422ptzIsylTterGbnRdj9sfR/VH9PuryzZ8eCk3yTqH3THbJbs1jcqTUqx8jgFiyifR7teWxrp3i2l/1IFaxknAO5x2VvWG8MzlDqGJDfdKPuCtkE/PoVjMfXuDknXb194lat0/kVjekL0rsXKFLts56DPjuRpLKuVxpxOlJNdesvExMbhSmNeElKtB2bOAnDfjDhsi7C75TbLhAfEaax3jC2yspCgtCu73ynr0PUa116E97tC9nXhpwl4dvZI/kOTTZjryYsCNzsAOvqSojmPd9EgJUT82vEipFUaVIvZ5w/Gs/4lQsPyN28xxcgpMWRbigltxKVL9dKkq2khJ6jWvPpsi1i+xPw+QgrXluSpSkbJKmAAP/AE6Ch1K2jinAw+15tPtmDXGdc7NFV3Tc2WpBMhY+UtHKkDk30HjsDfnoWL4BdnLhnxY4eM5TEv2UwHkvrizIpdYWGnkBJICu7GwUqSRsA9aCplKvn/kS4B+yvJvysf8ALrH3vsQY05GIsuc3aK/roZkVt9J+hJQR+Wgo5SpS44cC834TKbk3tmPOtD7nds3KGoqaK9bCFggFCtA9CNHR0To1FtApUw9l7h3g/FHKpGJ5Jc73bLotpT8F2GtrunkoA5myFIJCwNqB3ogHwI62KuXYy4b223SbjNzHJWYsVlbzziixpCEgqUT9j8gDQUUpWdVaG7/mvxLg8C5zW5crubaw+UrkugnSSrlASCfE+SR4k63VvOF/YstbcJmZxFv8mRLUApUC1qCGm/wVOqBK/fyhPuJ8aCk1K9EZnZv7Oduns2u4NNR5zoHdsSL84h1z3hBWCfoFfF87HfCO4NK+L1360rI2lUecHEj2bDiVbH0jx8aDzxpWVzG1IsWXXmxtPKeRbp78RLihorDbikBRHkTrdYqgUrY+GNqtN+4gWOxXsXD0K5TWoalQVJDyVOKCEqTzAg6UoEjzHmKuh/kS4B+yvJvysf8ALoKGUqXO1HwhTwgziJbIEqXNs8+IH4kmQE85UDyuIJSACQdHoPBaaiOgUrkjlkSGzIQ4tkLHeJbUEqKd9QCQQDrz0fmNXSwHsm8L80wy1ZVacrysQrnHS+0lzuAtG+hSrSNbBBB15igpTSrD9qfgzw94PWq3R7deshuV+uZUphp9bIZaaQRzLXpAJ3vQA15nfTRrxQKUpQKV9sloPILyFraChzpQoJUU76gEg6Pv0fmNXcxLse8PMixW0ZAzkmWRm7nBZmIZdLHO2HWwsJV9j8RzaNBSClWP7VPZyt/CjFLbkmOXO53KE5KMad6XyEtFQ22ociR0PKsHfmU+2q4UClKUClKUClKUClKUClKUClKUClKUF1uzP9pHH/5T+cu1tmd/qTn/ALRP9oVqfZn+0jj/APKfzl2pPttmj3+4xrTL/wCrvvI70ffISQop+kJI+muL38+n9X3t9r5bH5PawPDXEbDiuLp4hZ2gKbUAq3QVpCisnqlXKflKPiAegHrH3YXL+NWYXmUsWySLNC36jUcAua8uZZG9/NoVj+N+YLyrMHmozn/RVuUqPDQn5JAOlOfxiOnuArQq7U0FvWP8Wc6tMxD5vb09oK2tiZ9kSsezZ9YfQRVqMPvsXJcZg3yGClqW1z8hOyhQOlJPzKBH0VR2rWdmhSjwtjgkkJlPAbPgOakwQ17tN4VEes31YwWEty46komlA13raiEpUfwgSBv2Hr4Cq6VdDi0hDnDPIkrSCBAdV9IGx/SKpfSCSoR4x/q1c/cG/wCqpuqEeMf6tXP3Bv8AqpJDTauz2xP1nvDn982z/d79Umr0B4/3Kz2Xsl4Zebnbo9ykwmba5bI0lAWwuUqIpCVOIPRaUJW4vlPQqQkHY2K+UvP6uzbJ0u2XKLcoD648yI8h9h1Hym3EKCkqHvBANXP7KKn+OXC3NMX4irbvDMd1pMF5bLaHIhcQs7aKUjk0pAI106ka0SKrTwByy/43xHs0KzThGj3a6Q405BYbcDzZeA5fXSddFK8NeNB0OK3E7MeJ1yhz8vuLctyEz3MdLTCGkIB6qOkgdSRsn+oACtMq3HwhUhyw8SMHuFoDcOTDirksKbbTpDiHgpKuUjR0QPEGpI4K39rK+yPfsn4hJRdu6ZnmYtLLbLjrDad92ChI0SAU7HXrQef9KsDxW444pnXAK1Yi/iiWMqivhXpLMNlmLFQlaiEsch5gkoITy8o8ySSAT+zc4w2xcBMUs3CaVLh8QHpSV3x2NBUJSgEL5x3xTvl5y3ypbVrQO+tBX2lXnlWmZnfYenXziFb1SsmgRJUlqdOjcktJZdUUKKiArqgBO/Ma3vxqv/ZEyq+23i9j2MQ5qUWi7XJAnRlR21h7ST5qSSPoIoIZAJOgNk19OtuNOKbdbU2tJ0pKhoj6KuB23cyGC8TIbWHst2/JJVraVJuiG0l2LHC3A2ywSPsRUrnUtQ9YjkAIAO+12hLeznPY3xfiVf0NvZREZjFU9LYQt5Li+6Wlehog7CvcR01sghTKlTP2VL3wmx7Ib1dOJ6Ap1qGDaC5CVKbDvrcx5AkjvPk8pUOUdeoOqlnsV5PxDy3iJNteZvXO8YxItbzvdXCLzxQ6Fo5SjaeVJIUsaHQgnp7Ap/SpR44xRw37ReQtYkG7aLZcO+gpbQFJY50JWAEqBGhzkaI1Vr8jvdtf7FEDM8wt0a8ylQ40l1pbSW0zJHfgNJcCANt8/IVJGtpSR03QUCLToZDxbWGyeUL5Tyk+zftr4q6PYty++8U38zxDPZDN7sTkFtaILsdCWmOZRQUtpSAEJ1rQHgQCNHZNfuHXDBvLO0N9bduS6iCzdZLEh/pziOwpZUfZzFKNA+1Q6UEZIbcWlakNqUlA2ogbCR4bPsq8fCP/AOXnfPxbdf7xyo47XOWXrhtxFt2C8OLjLxOw2q2MrES1ulhLzqyoqW6UnbpKeUevvwPtJMu4jkLOT9hHI7sIUaHKXarimciM0G21vgr53AlICUlfRZCQAFKOhQUDpUkdm6bw6t/FSFN4oNpcsLTS1JDjKnmu/wCnIXEJBKkePTRG9b6bqYeDHEDN792kmo9ml3i4cPp95ktNxTC5YQiEr7rbYRyI5QEHwB2nrrrQVWpU89tewWnDOP5XjMJm2pfhx7gWmUANpfKlgqSnwGygHWtbJ9tWH4LXpvMuyLf8h4gO+ngMXATX2mW2XlR20ElCShIAJTtIOvOgoEltxTanEtqKEEBSgOid+Gz9FfFW17HXE7KMs40OYxNdiR8WlW6RyWKPFbRDYQgbQlCNeQJBJ2VfdE1EHGmK7wk7Rt/YwxarWbZK54O0Jc7lD7AUUgLBBHK6QNg9NedBhco4uZ5kvDu14DeLwH7FbO77hoMISshtJS2FrA2oJSdAH3E7IBrQ6u72p3lXDsX4VeZSGVXC4JtMiU+lpKC64uIpSlHlAHVRJ9lUioFbNw4wLK+IV/RZMTtD1wk9C6sDlaYST8txZ6JT8/j4DZ6VOPAHsoZJmBj3zO/SMdsStLRGKdTZSfckj7Ek+1Q37E6O6vLhGI43hVhaseL2iNbIDX/dsp6rP3y1HqtXvUSaCGOAHZexXh8WL3kpYyPJEaUhxbf6Fiq8fsSD8pQ+/V16bATU55Fe7RjtnkXi+3KLbrfGTzPSJDgQhI+c+Z8APEnoKinj32iMM4WpdtgX8d5IE+rbYzg0ySNgvL6hseHTqrqOmjuqC8XOKmZ8UL18YZRc1OMtqJjQWdojRh+Ajfj+EdqPmaCyHFvtlqXcXrZw+sxXb0+qblLUW3HvaUI1tCfYT63uTUQOdoO9OLUtywwlrUdqUp9ZJNQtSqfI4HH5M7y13+8/9e+LkZMUapOk72XtAJVJQ3eMe7tknSnYz/MUj28ih1/KKm23TI1xgR58N1L0aQ2l1pY8FJI2DVG6tzwSUpXCyxFRJPcrHU+QcVWrde6Zx+Ljrkwxrc6Zbp3LyZbTW87aL2pLDHVa7dkjTSEyEPeivKA6rQpJUnfzFJH8aoAqzfaa+1w3+MGv7K6rJWZ+Hr2vwo36TMKPUqxGedLzfBr/AKh8t/GTP91X78JQtYwTE2wpQQbm6SnfQkNdD/Sfy1+fBr/qHy38ZM/3VWBz/h9Zs2v+MXC+JEiNYJa5rcVSdoeeKQEc34KT62vMgb6bBzigiPsUcFfqDxcZjkUTkyW8Mju23B60KMdEI15LVoKV5joOmjvT+3RxxNujP8LsUmalvo1e5TSurTZH/VwR90ofK9ifV8zqaO1NxHunDHhPLvllgOyLjIcEOO+G+ZqItYOnl+WhroD0KikHpXmDMkyJkt6ZLfckSH3FOOuuKKluLUdqUonqSSSSaDiq/wD8HF9pC8/wkf8AzaNVAKv/APBxfaQvP8JH/wA2jUHV+Eeddb4VY8G3FoC72AoJURsdy4etR92BuKGUu5+vALtdZVxtMuI49FRJWpxUZ1sBWkKJ9VBTzbT4bAI113MHbjwjKs9wfHLLiVmkXSaLyHFpb0lLaO5cHMtSiEpGyOpIr47KHZ2XwrlP5Rkk+POyOTH7htqNssxG1EFQCjorWdAE6AGiBve6CTu0DaYN64IZnBuKWyx8TSXwpfghbTZcQv8AiqQk/RXlBV6+2rx5skDFbhw3xWczcLtcmyxcpDDgU3DZJ9dsqHQuKAKSn7kE70dVRSgmfsSEjtOYkASARNB9/wCgn6v/AMdCU8Es7UkkEY3cCCPL9DOV5/8AYl/XO4j/AC38yfq//Hb7SGefwbuP5s5QUx+DqtsGZxpuU6S2hyTAsrrkXm1tClONoUse/lUpPzLNXj4jS75AwDIJ2MsekXuPbZDsBrk5+d9LaigBP3R2BoeZ6V5d8EuIdy4X8Q4GWW5oSEtBTUuMVcokMK+WjfkegIPkUg9fCvTThfxHxHiRYG7xit1alJKQXoyiEyIyvNLiPFJ9/gfIkdaDygvFwuN1ukm43aXImTpDhW+/IWVuLV5lRPUmpD4VcduJPDdBjWO+KlW8p5RAuAL7CPegEgoP7UgHzBq53HLsu4VxDkyL3Z3DjWQPErcfjthUeQs+bjXT1j98kg9SSFGqX8YeB/EDhe4p6/Wv0m1c/K3dIRLkdXsCjoFBPsUBvy3QaBf7nJvV9uF5mBsSZ8lyS8GxpPOtRUrQ8hsmulSlBYvsCYMcl4wKyWUzzwMbY7/ZHqmS5tDQ+gd4v50Cr6z8ms0HLLXi8qWlu6XVh9+Iyfu0s8nP8x0vY9oSr2VFPYowb6jeBtukyWe7uN+V8ZyNj1ghYAZTv2d2Eq15Faqq9x94xy0drRrLLU8p6HictEKMhCujrbZIkAeXrqU6nfmnVBZjtw4F9WXBSXc4rPPc8dWbgyQNqLIGn0fNyev87Yrzer2MhyLffLIzLYU1Mt1wjJcbVrmQ804nYOvMFJ/pryo45YS7w84q37FFBXcRJJVEUdnnjrHO0d+Z5VAH3g0GlV6f9j79bbh372d/v3K8wK9P+x9+ttw797O/37lBWf4SMn66ONp2dCybA/8APcqrFWm+Ej+2njn4kH9+7VWaBSlKDd+BWFL4g8WMfxbkUqNKlBcwg65Y6PXdO/I8iSB7yK9R8nyGxYhaokq7SGoMR2XHgMAAAd464lttIHkBvZ9iQT4CqqfBxYP3UO/8Q5bJCniLZAUR9wNLeUPbs92N/gqFYr4RvOVP3yw4BCfPJCR8ZzQlX/eq2loH2FKec/M4KC2PFrD4ue8OL5iUvkAuMRSGlqGw28PWaX/FWEn6K8mLnClW24ybdOZUxKivLZfaUNFC0kpUk+8EEV6p9n3Nk8QuENgyZbqXJjsYMzteIkN+o5seWyOYD2KFUt7e2B/Uvxg+qSIzyW/JWvSRodEyUaS8Pp2hfzrNBXalKUClKUClKzdkxa8XqEuXbmWnm0KKVDvkhQPzE7oMJSvpxC23FNuJKFpJSpJGiCPEGvmgUrN3DF7zb7Si6TWEMR1hPLzuJCjvwHL4791YSgUpSgUpSgut2Z/tI4//ACn85dqRXrg5aoU24MK5HmIb6mlexfdK5T+XVR12Z/tI4/8Ayn85drbs2cW3itwUhRSS1y/QSAf6Ca4vfz6f1fe32vlv+HtQ3SlK7W0Aq1fZm+1ax++3v6xVVKtX2ZvtWsfvt7+sVEphs/Ff7WuRfi57+yapbV0uK/2tci/Fz39k1S2kElQjxj/Vq5+4N/1VN1Qjxj/Vq5+4N/1UkhqkCHMnyUxYMR+U+oEpaZbK1HXU6A61d3tdWy5S+yPw/iRbfLfkMyLaXWm2VKWgCA8CVADY0To7qk1pudytE5E603CXb5aAQl+M8ppxII0dKSQRsdKzS+IOerQULzfJVJUNEG6vkEf61fKVvfg3IE6Hj2YOy4UmO3IehrYW60pIdTyOnmSSOo6jqPbVVuFWP35vixjDa7JckrYu8J11JirBbR36fWUNdB0PU+w1iImdZvDisxImY5FHjsIS2001c3kobQkaCUgK0AAAABXwjNszROdnoy6/pluoS24+Lk8HFoSSUpKubZAJOh5bPtoLQfCN2q6TsyxR6DbZkptEBxClssKWkKU6AlJIHiSQAPPdbNwZtV0Y7B+V25+2zGpq41yCI62FBxW09NJI2d1T1/PM5fQEP5nkbqAtKwld0eUApKgpJ6q8QQCD5EA1yfXDz/8AZxk387P/AOKg1+fDmQJKos6I/FfSAVNPNlChvqNg9avZx3wzIMF4GY/auAltmBuS80m5T7E0VTpjZbJQ4XGwVlKlHZUD09UDSTqqL3a53K7zlzrtcJdwlrACn5LynXFADQ2pRJOh0rZLPxP4i2awCwWrNr/CtYSUJjMznEoQk72E6Pqjqeg1QXgxGw5Oexjf8buUiRe8qNuntS47bxlSG5DnMtMdRBJLoStG0+IJ15VVbs4YtkNn7S2OQbhaJTb1ru4ancie8RHWEnaVrRtII8xvoelR/imf5vibUtrGsrvFpbmK5pCYstaA4r746PyvwvH310rXlmU2tchdsyW8wVSnC7IMec62XlnxUrlUOZXvPWgsB8IFabrK45RZMW2TX2F2iMylxthSkqWXHdIBA0Ve7xqTM/tV0c+D5tFtbtsxc5MaEDGSwoujUkE+rrfh7qp3KzjNZYbErMMgfDTiXWw5cnlci0naVDauih5HxFc31w8//Zxk387P/wCKgtF2DcEscnDsryly1QZ2ZwJjkOGxcGwr0MpaSpCuQ/IKnCpJV46bIBHrbyHZIicW1cYpd84p3K/xW34kiNDi3p9xCpUgqStXcMrIHIhCFkqSOUbSB41UXHM0y7HL3IvdiyW62+5SSVSZLMpaVvknmPeHfr7PX1t9etfdwznM7hk0fJ5uU3l+9RiO4nLmLLzWvJCt7SOp6Dp1NBKvbHw/J2eOl/vjlkmJgXWchm3ucnWWpEdrm7tPylgb0VAEb6b30qbs/tV0c+D5tFtbtsxc5MaEDGSwoujUkE+rrfh7qp7kOd5pkF6i3q85TeJtxiDUaS5LX3jA/AIPqfRquT64ef8A7OMm/nZ//FQWV+Dft1wjZZlEuRBlMxnrc0GnXGlJQsh07AURo691aJw/yVXDHteSsjySJKgWiXe7hGdfeYUhPdOuLT3gJHVKVKQokeXz1DsDNszt8REOBl1/iRm98jLFyeQhOySdJCtDqSfprp33Ib/fu5+PL5c7p3HN3Ppktb3d82ubl5idb0N68dCgnvt82m4Ocd4s6PFckR7ra45hOMpKw+RzJISR4nYB0N9FD21OWEYjcMa7C9+sEiOV3hdruC5UVn7Itt5ZX9iIG/XSnlCk+SgR4g1S6w8T+IthsnxLZc3yCBbgClEdic4lDYPkjR9T+Lqs3wmd40ZbKXiXDy/5Q73bTklyHFvDkdlCCra1q24lA2pXn1JPnQSr2COH+M5Dn2QycvtrMq4WRhlUO3TmtgKWpQW6W1eJRyoA2NAuA+OiNrwyFxjm9qdFwzqfeLTi9uvS2mRJkLjW90EqRGYjIOkOlW0aCQSRsnrs1Vd675ni2bzJrl2vFsyaJIWzKkCUtMlLiTyrSpYOz1GjsndfuW53meWS48rJMou10diq5o5kSlKDKvagb0k9B1GvCgsL8IFiWSSeKKcpZtElVlatcSMZhADanlOugNp2fXX58qdkDqenWt94M2q6Mdg/K7c/bZjU1ca5BEdbCg4raemkkbO6qfJyriXxJu9nsErIb7kM30hCLdGdlqWQ8egUNnQV+Geo8zWT4gzeM2A5CqwZbkmVW24BtLobVeXVhbaiQFJUhwpUCQRsHxBHlQSL2DbPdovH5mRJtc5hlqDKacccjqSlC+VPqkkaB6jpWI7aFjvUrtLZO/Gs9wfakKhoYcbjLUl1QgskhJA9YgJV0H3p9lRVGzjNYpeMbMMgYL7hddLdyeT3iyACpWldVHQ6nr0Ffr2dZu+4w69mOROLjrLjKl3N4ltZSpJUklXQ8qlJ2PJRHmaC4faNtV0ldiTAIEa2zH5jUazhxhthSnEcsMg7SBsaPQ1Rqtn+uHn/AOzjJv52f/xVrFBP/AHtO5bw7THsl/DuR40jSUsuufomKn/wlnxSB9wrp0ABTV8eGvEDE+IlgTesTuzM5joHW/kvMK+9cQeqT8/Q+IJHWvI+s1heV5Fhl/ZvuMXaTa7gz8l1lXyhvZSpJ6KSdDaVAg+yg9K+OfAvCuK8NTtzjfF18SjlYu8VA75OvBLg8HEe49R5FO6oJxs4LZrwpuJTfIXpVqcXyxrrGBVHd9gJ8UL/AAVew62OtWz4A9rHHssMexZ8mPj97VpCJgVqFJV7yf0pR9iiU/hDYFWRuUG33e2vQLjDjT4MlHK6w+2lxt1J8ik7BFB440q8HFvsbWifc3rvgV4ctLC9qctbrPfpSf8AwllaSB+CrfuPgKhmT2c3oz62JGVLZdQdLQu1kKSfeC7VLldQ4/FmIzTrf0n+Yh74uNkzRukb/eEC1brgmhSOFtiC0kEsqPX2FxRH9FaXZeANojykOXW+yp7STstNMhgK9xPMo6+bR+apghx2IcRmJFaS0wygNttpGglIGgB9Fat13qmDl4648M71O9/L+WX6fxMmG02v4I07TX2uG/xg1/ZXVZKnrtR5FGMSBi7DoXIDolSQk/IASQgH5+YnXuHtFQLWb+HsdqcKO16zMqHUrRbPOvReb4Nf9Q+W/jJn+6qV+0NxWXwouWG3KUjvbLcLg5EuiAna0tFAIcT57QeuvMbHiQRFHwa/6h8t/GTP91X18JO2s4FijoSeRN0cSVewlo6H9B/JWbUFmbvbrFmeJPW+a3Hullu8TSgDzIeaWnYUkj3EEEeHQivMTtB8LLrwnz5+xS+d+2v7etcwjpIZ35/hp8FD29fAjdhOwXxo5FN8Kcll+qoqVYn3VeB8VRifyqR9KfvRVjeP3C+1cV8Ak4/N7tie3t62zCnZjPgdCfMoV4KHmOviAQHlRV//AIOL7SF5/hI/+bRqonlVhuuMZHPx+9xFxLjAfUxIaV9yoew+YPQgjoQQR0NXs+Di+0hef4SP/m0aglLjhxPicLfqYuV1bBtFyuvoM90AlTCFNLUHQB48qkjY+93rrqtnzbHrZneDzrDImPpg3SNypkwnylYB0UrQtJ6+R8wR0Owar18JF9qvHPx2P7h2tf7B3Gvv2meFOTyvsjaSbFIcV8pI6mMT7R1KPdtPkkUFVuK2CXzhxm87Fb8yUvxl7ZeCdNyWT8h1B80qH5DsHqCK1WvUDtMcHLdxcwwx2+5i5DACnLXMV0AUfFpZA33atD5iAR5g+Z+R2a6Y7fZtjvUJ2FcYTpZkMOjSkKH9Y8wR0III6GglbsS/rncR/lv5k/V/+O32kM8/g3cfzZyqA9iUE9p3EtDw9N3/ALE/V/uO32kM8/g3cfzZyg8mq71ivF1sN1ZutkuUu2z2DzNSIzqm3EH3KHWpO7NXB+Nxiul9tSshVZ5lvhpkRv0MHUu7UUnm9YEAEo8N+NatxP4X5vw3ua4eVWORFa5ylqYhJXGf9hQ4Oh9ujpQ8wKCw/BDtiXSHIj2fijGTOhkhAu8Vrlfa97raeix7SkA9PBRq58KVaMksDUuK5EulpuMcKQoacZfaWPyFJB8DXj7BiSp8xmFBjPSpT6whpllsrW4o+CUpHUk+wV6idlzEb1hHA3HsfyDaLi2hx51gnfo/euKcDZ94CuuvPfz0FN+2lwat3DPKoV6xpvucfvZXyRtk+iPo0VIBP3BCgU+zSh4AVGHA/DHeIHFXH8USlRZlygZSh9zHR67p35HkSrXvIHnVmfhJcphLbxfDGHkrmNrcuMlA8W0kd23v5/snT3e8V9/Bw4Pys3/iFMY6rItkBSh5DS3lD6e7TsexQoLScQsssfDrA52T3hDqLXbGkbajIBWdqShCEJJA2SUgAkD5qr8rtg8GFKKlYfk5JOyTbYnX/wDPWF+EfzUMWjHsAiu6clOG5zUhXUNp2hoH3FRcPztiqTUHqfwL4x4hxbg3FeLRrlD+KlNtvR5zLbawlYPIpIQtQ5fVUPEeHhUF/CM4GZVmsvEWEyS5CV8XXAj/ADSiVNKPuCypP/mJqD+xbnH1F8c7Y1Id5LffB8VydnoFOEd0r6HAgb8gpVehvEjFoWbYHesUuAT3FziLY5iN92vW0L17UqCVD3ig8h69P+x9+ttw797O/wB+5XmbfbXNsl7nWa5MqYmwZC40hs+KHEKKVD8oNemXY+/W24d+9nf79ygrN8JH9tPHPxIP792qs1bj4ROwX248RLBcLfZblLhtWfkckMRVrbQrvnDylQGgdddeyqwWfFMnvM1MK047dp8lRADUeG44r8gFBhq5oUaRNmMQ4jSnpD7iWmm0jZWtR0APeSamq+9m7KMV4RXLiBm9zi2BUUJ9HtZR3z7ylKCUpUUqCUEkjp6xA2SBrVdnsNYP9V3G6Jc5THeW7HW/jB0keqXgeVlPz855x+5mgvjwnxSHw64W2XGe8aQ3a4Q9Ke2AhTuit5zfsKys9fKoNl9sPg25JcU7i2USVb13ptsU8+ugPrP71r21vHbQzT6juA93Qw93c69kWuNrx04D3p/9JLg35EivM+g9LOC/aM4c8RsuRiOOWy82ua6w4+0JsZlpt0o0VJT3bqiVcu1eHgk9a5u2Tgf1c8ELn6Kz3lysp+M4mhtSu7B7xA8ztsr6eZCa87eHOUS8Lzuy5VB2XrZMRI5Add4kH10b9ik8yT89etlmuMG92WHdYDqZEGfHRIYXrottaQpJ+kEUHjnSpE7R2Br4c8X73jyGFNW8u+lW0nwVGcJUjR8+Xqgn2oNR3QKUpQKzOIX+Tj12RLZ2tpXqvtb6OJ/4jyNYalBJvEHH418tiMqsIDvOjmfQgfLT99r74eBHu93XG8N8cYLasmvXK3b421tBzwWR90fcPL2n+nIcGDdG0THXFpRZ0pJUXPDvB5p9nTx+iuzxiauHxPDVBKPiZIHOlkaAV9yTrpy68PLf0UQ0vOMlkZHdC6eZuI1tMdrfgPvj7z//ACtfpSiSlKUClKUF1uzP9pHH/wCU/nLtbZnf6k5/7RP9oVqfZn+0jj/8p/OXa2zO/wBSc/8AaJ/tCuL38+n9X3t9r5bH5Pah2lKV2toBVq+zN9q1j99vf1iqqVavszfatY/fb39YqJTDZ+K/2tci/Fz39k1S2rpcV/ta5F+Lnv7JqltIJKhHjH+rVz9wb/qqbqhHjH+rVz9wb/qpJDTa5I7D8hzu47Ljy9b5UJKj+QVs/CHDX+IHEuxYfHdLJuUnkcdA2W2kpK3FAeZCEqIHtFTv2tL9ceEmWWXh7wxmSsTs8O1NSnTbXSy9LeU44Ct51OludEJ+UT4mvlKrtfTaFuOJbbSpa1EBKUjZJPkKsL2n8n4b5lgWCTsduXxvm/ozbV2kiMUPvDugFekaSApzvB00T05upBBMi8ZsZPZy7PNpjYcpMTKbzMbjXa+tdJX6Wpa0tODq2naQkaI6bPiSaCmzzTrLqmnm1tuJ8UrSQR9Br4q4XZWQ3x7wbLsL4nPu31+3Bh22XSUouzovehwK5XlbVpKkJIBJB5lA7HStP7JVwyXGO0dF4UyprK7Q3dLi1cIno7a0OvsxnUlXMpJUBzMoOgQOnvNBW2lWw7Y+evYPxlfhYK2zar0tiPIuN0QyhT402kNR2iUnu2wlKVED5RXo9ABUhdoCPiMngJiXGe/2GBcMmbt8OQwHo6EonPyWEkJkJSAFoQpRd5D0PIU+CjQUNpV2ux5dZnGrCs8xHiOtu9W5gxjGSthtBi9+HgruuVI7vRbSU66JPgB51e4T5Ff8N4jxWbJPTGXJmtQZR7lDgdaLyQpOlpOt68R1oNGpV8O3ZerZg8TGbra7XD+qSSJLFtfcjIW3CbBaU88hCgU98dtJSoj1QVEddEfvDePa+LvZFevPFXd1ctBlPG4hCEy22Y57zSXNdCUgp35g9d0FDqVbHsgcRb5l/GRzEpjFtjYjKtz/AC2BmG36I0lABQACnaiNnalEqVvaiaivi8uZwd7Q+Uw8EeXaER3e7YCmkOcjTrbbvIA4kjl9Ya6b0B1oIipV1fhCI8dHDTCJDcZht12WpTim20pKiWQeuhWd7KuTXnPOBGcXTLZDF0mRnJLLLq4rSChHoqVaHIkeZJoKG1+gEnQGyalrsrZXfrPxbx2wW+alq2Xi7xmp7CmG1h5PNrRKkkjoo+BHjU59ufLmsGz6zrxVlqFlEqzobVcA2kuQoiH3ShMfp9jU4tTnMsetpCQCNq2FNH2XWHS0+0tpxPilaSCPoNbXws4jZZw0vz16xG4JiSX2DHeS40l1DiCQrRSoEbBSCCOo+YkG0fGCKniB2GLNxDyhQmZNbG2nG5/IlLiwqYI6kqIHUFKgT+EkH21jPg+MlvN7ya5YndpLUuy220KdiRXIzWmlF9GzzcvMflK8SfGgqdfbrcL5ept6u0lUqfOfXIkvKABccWoqUrQ0Bsk9B0qZO01wGY4M2qwyE5O5fHbo68he4Qjpb7sJI0Ode98/t8vfWFz3OsqwjjpxGdxi6egLl5HOS+fR2necJlO6+WlWvE+FWm7eudZVhFoxJ3GLp6AuW/KS+fR2necJS3r5aVa8T4UFFcVv12xfIoGQWOWqHcoDwejvJSDyqHtB2CPIgjRBINZXidn2T8R8m+qLK5qJc4MJjoKGktobbSSQlKUjw2pR+cmpL7L+e5XI462m3v3NLkXIbuHbq0qKyRIUUq2fker8ydCtt7aeOPZF2pMfxa2JbYduUCDDZ0nSEFx9xPMQPIb2aCsbDL0h0NMNOOuHwShJUT9Arjq7naAw/MOHFixrDeCSPiSB3C3rpNjXBiJLmvApCVOOLWlavBR9U69bXgAK17tI4raL72dbLnV7l2ZriJbGY6buqPJZL01K1hpQcDaiFrBUhXN10Ary8AqQ0y88FlppxwISVL5Uk8qR4k+wVx1dHKeFnFxjDcQd4E3dEPG/iaNJW1bbkIciXLUnncedWSkO82062rlA6coA6wV2jbhkDoxez5hij2P5NbYTybkow22GpylvFSX0Fv1VlQ+UodOYK17AER0pSgVOPATtJZlwzUxap6l5BjSdJ9BkO/ZI6fay4dlP7U7T7AN7qDqUF5v8t7Ff2D3r/aWqwOV9rLh7kjOpuA3puQBpEluS0HE/8R7j/RVN6V55cVM1JpkjcS+qXtSe1WdSsFJ7QNrST6NjkxwbOu8kJR83gDWr5Jx1yOewpi0QYtpSoa7zmLzo+YkBI/1aiWlY7H0Tg453FN/eZlatz+RaNdpyy5EiXJclSnnH33VFbjjiipSifEknxNcVKVlYjXhCmtB2auPvDrg/g71nXZcluVxnSPSZshLTKEc3KEhCAXN8qQD1PUkk9PAZTj12jOF3Fjh+/jE/HcohPJdTJhS0tsLLDyQQFFPeDmBClJI2Oh9uqrfneG3PDVWNNzfhvG9WWNeY3o61K5GXwShK+ZI0saOwNj2E1kOIXDPJ8HsOM367tR3bZkluanwZMZSlIAcQF90slI5XAlSSR1HXoTo6DUIkh+JKZlxXnGJDK0uNOtqKVIUk7CgR1BBG91cHhx21nItoah57jD06Y0kJM62rSkvaHippWgFe0hWuvQDwqrvE3Dbnw/zm5YheX4b8+3KQl5yItSmlc7aXBylSUk9FjxA67rY814MZjiPFS0cO7wIKLheJEdiDMQtZiPF5aUBQWUBWkqVpXq7Gj0PTYSjx/wCMPBTi3DEmXimUWrIGW+SNdGGo5VryQ6nvB3iB5DYI8iNkHL9nrtF8N+EvDpvF2bHk9wkOSVy5knumEJcdWEp9VPenQCUIHj5b86rHkNkm2TKbjjkjkfmwJrsJz0fakrcbWUHk2ASCR06A+6pMT2eszUx6N8dYkMj7nvvqZN3T8a65efl7nWufl68vNv3UEmdortD8NuLfD1eOuWHJoE1h9MuDJLbCkodSlSdKHebKVBRB14dD11o1ahSpMKYxNhyHY8mO4l1l5pZSttaTtKkkdQQQCCKzmAYjcMyzi34hCkw7fcJzymGlT1LbbS4ASEKKUqIJI5R08SPCu5hXD6+5TlVzx1pyFbJNpiyZVxdnuKQ1Fbj/AKYVlCVHofV6A9SPnoLOcNO2mzDxxiFnuOTp1zYSEGbblI1IA+6WhRTyq9uiQT5DwrUOPnGTgnxbhJenYnlFrvzCOWPdI7Ucr1964nvB3iPcSCPIjZ3XrD8fuWV5TbMbs7aXJ9ykojsBR0kKUdbUfJI8SfIA13eJWGXnh/mc7FL93CpsMp25HUVNOpUkKStCiASkgjroUEg9mLiHgXC3KpOV5Dbb7dbolpTEBEVtpLbKVdFLJUsErI9XWtAE+O+lh7j2zeG1xt8m3zsNySRElNKZfaWljlcQoFKkn7J4EEiq8WHs/wBwvOMOZFF4ncMkQI7TDk1bl5cHoRe/S0PaZIQokFOifEEDdR1bsWlXHiJGwmBcbbKlSrsm1MTWnlKiOrU8GkuJWE7LRJCgoJ3ynevKgkPgtxSxzhJxjmZPj9vu9xx+TFdi+jSihqShta0rAJSVJUUlCevTfXoKtZbO13wavEItXZF5t6XE6cZm24OpPtH2NSwR89UlxnhtfMg4uq4YwpdubvAnSYXfOuLEfnYCys8wQVcp7tWvV31GwK5rHwryq58WzwwcRFtt/S4+2r0xaktJ7ppbpPMlKiQpKCUkA72PI7oLp2ztF9m6xOOS7KmPCkEaKoWPqZWv3bCB/Sa0TiZ21YhhOxOHeNyfSVjSZ925Upb96WkE83uJUPeDVQMVsF3ynIoWP2GC5Ouc53uo7CCAVq8fE6AAAJJJAABJrfsr4K3aw43c721mmCXr4pSlVwh2u9B2THBWEeslSUg6UQNAk78N0GmSr2vJ8zVe85ulzmemP95cJTKUuSFj2ICilI6AJHkka0NDVW9wzta8J8PxeBjWP4RkkS2wGu7YaAYJ8dkk951USSSfMkmqSVsmC4bc8wTf1Wx+GyLFZX7zK9IWpPOyyUBSUcqTtZ5xoHQ8eooN87UnEfEeKmXxMqx6FfIE0RkxZbM4NltSUElCkFKyQfWII1rwPQ73D9K2TIcNudkwrF8tlvw1wclTKVDbaWout+ju90vvAUgDauo0VdPHXhQY3GF2prIITt8duDVubeSuQqAlJkcoO9I5iAFHw2T08dHWjeH/AC2sA/Ypk35GP+ZVYcY4JXG8YPZsvm57gWOwbyHzCavV0cjPLDLqml9O6IOlJ8iehG9b1WoN4dKkcSYuC2+8Wa4ypdyZtzE+JIU5DcW6tKErDgTso2obITvoehoJE7R+fcLuJ2SxsmsNlyCxXZ1xKLopbLK25DYGu8CQ5+mgADyChrZGtmcMH7W3DDEMQtWMWnEspEK2RkR2ivuCpQSOqj9k8Sdk+81XnNOC72K225yZnE3htLlW3nD1tiXla5alpOlNpbLQ9cHY0SPA1rHDzAbpmjd0lx7jaLRa7S225PuV1klmMx3iuVtJIClFSiCAAk70aC43+W1gH7FMm/Ix/wAyn+W1gH7FMm/Ix/zKphn2IScPuEWK9ebFeGpccSGJVonJksrRzKT46CknaT0UAakC2dnrIp9rsUhGaYHHuF+gMz7baJN2UzNkNujaAlCmwCokFPytbBG6DY+1Z2hIHFyz2axWG3XK2WyJIXJmCXyczzmuVvQSojSQXPE9Soeyts4FdoXhDwlw4WKz4rlEmU+oOz57jccOSnda3rvPVSPBKd9NnxJJNVLlClW64ybfOYWxLiurZfaX8pC0kpUk+8EEVuPErhZlfD6x45eMgajCPf4vpEYMrUpTPqpV3bu0gJXyrSdAnx8ehoJc7UfHfA+MOIwYMK05LbbpbXy9EU8lksL5gAtKwF78ACCN614darVWy8PMIv2dXly22RuOhMdlUiXLlvBmNEZT4uOuK6JSP/8AKy3EThlccNs8a8jJsTyK2SHzGEqx3VMlKHeXm5FJISsHXXfLrw69RsNGbCC4kOKUlGxzFI2QPcNjf5audwy7V/DvB8AsuJMWHLZzdripYEh5LAU4R1J13h0Nk6GzoaGzqoCxbgpcb3g1oy+ZneB45Au6n0w271dHIzrncud25od0QdHXgT0UN63Wk33GpFuzJeLwLlbL/J79uOxJtL5ejyVrCdBtZCebqrl8B1B+egn3tI8b+FHF/G0NqxjJIGQQUq+Lp5QyQN9S04A51bP5UnqPMGstSVl/B66Y1bLpIlZhhMqfaB/0jao133MjnmCSClSUpUQohJCFKOzrxqNaBSlKBWcw3HZORXVMZvaI6NKfd+8T7vefKsHWXtWS3u1QVwrfNEdhZJUEtI5iT03za3v6elBtPEbII0aKnFLFpqJHHI+pB6KI+4359fE+Z+mvvhnk7JaOM3opciPgoYU51A3/AN2fcfL39Pmj0kkkk7J8TX5QbJnuMu47dOVHMuC8SWHD5fgn3j+nxrW6zVwym+3C2i3TZ3fxgAOVbKCengebW9+/e6wtApSlAqVMN4F5blWMwsgt9xsbUWYkqbQ+86FgBRT1AbI8QfOorrKwslyKFFRFhX+6xo7Y0hpqY4hCeu+gB0Kp87Hyr0iONeKzv1jfg9+PbDW28tZmPpOl3OEGNT8P4dWvHbm7GelxO+7xcdSlNnneWsaKgD4KHl41m8lgvXKxyYLCkJcdSAkrJCR1B66B9lUO+q/LP2UXv/b3f8Vfqcxy5J2nKb4D7RcHf8VaXPwfy55P9V30drtdr5T897/H8WfjrmGMXc93Ota+fprS1Vzwq62+A9NekQlNsp5lBC1Eke7aa1mq9vZhlr7SmnspvjrahpSF3B0gj3gqrpfHV5/0tP8A9oX/AMa3Tg05WOkxyrxad+Go14MByLYbWjuazEfWdrtYnwayjJceiXyDPs7caUkqbS884FgBRT1AbI8R7an/AIQYtcMPwxuy3N6K9IS+44VR1KUjSj06qAP9FeXcLP8AO4UVEWFmuSRo7Y0hpm6PoQnrvoArQrm+uTxF/Z9lX88SP8dXZl4PVbNrXIveI3W0RFtIfmRXGW1OkhAUoaGyATr6Krje+BuWWizTrrJuNkWxCjuSHEtvOlRShJUQNtgb0PaKpv8AXJ4i/s+yr+eJH+OviRxDz+Qw5HkZzk7zLqShxtd2fUlaSNEEFWiCPKkSJ5qEeMf6tXP3Bv8AqrXPjq8/6Wn/AO0L/wCNdWTIkSne9kvuvua1zOLKjr5zSZQ3bs/5lGwDjHjeWTkKXDhSVJk8o2UtOtqaWoDzKUuE689VLnwgkFcviPYcxt6hMsN2sjSYs5n1mXFpW4SkLHQ+qpCvmV7qrRWzYzxAzjGbeq3Y/ll6tkJS+8MePMWhrm3vm5AdA789eVQlkZuKIxrh5Bya9OSYd/uU5tdngK0kmGgKLklxBHNyqX3aW/AHlcPUAVaLtZX5ri72ZMezTE2/TWIlxbfujDJ5nIKi0tC0rSOo5VqA35gg+B3VM75d7rfLm7c71cplynPHbsiU8p1xfzqUSTXcxXKsmxSWuXjN/udnfWNLXClLaKx7FcpGx89BaXsHPRsDwjPOI2WLVbLFyRmWJDukiQpsOrWlsHqtXrNgAeJVodR00jsrSrnlXa/g5r8VyURbhc7pLecQ2pTTK3Y0hfIV61vawPpHtqF8tzTLsuU0rKMlu157n9KE2Wt1Lft5Qo6H0VwWTKsnscVUSy5HeLZHWsuKaiTXGUKWQAVEJUBvQA37hQTT24rPdpPaMurse1znm5DMVDC246lB1QjpJSkgdSNHoPYamPtHWy5SOxFgMJi3y3ZTMa0d6whlSnEcsMhXMkDY0fHfhVOpObZnKejvScuv7zsZfeMLcuTylNL0U8ySVeqdEjY8ia5l8Qc9WgoXm+SqSoaIN1fII/1qC2HwasCdEj5zIlQpLDMlNtUw440pKXQPStlJI0odR4e0VWKx2C+p4twmDZbkHU3Zt8tmKvmDfpAHPrXydg9fCsRCzjNYMNqHCzDIIsZlAQ0yzcnkIQkeASkK0B7hXwM0zEXI3MZZfvTiyGDJ+MXe9LQVzBHPzb5dknW9bO6C1nwk0K4SZ+HSI8SU9FjRpinXENqUhrameqiOid68/ZWd4LW27RewhlcByBOYnORbmlLCmVJdVzJ1oJ1s7B176pvcM2zO4QnYU/Lr/LivJ5XWX7k8tCx7Ckq0R89dj64ef/s4yb+dn/8AFQTN2DLTdY3H9p+RbJrLTMGUy644wpKW18qTyKJHRWiOh69awPbegTmu0dlNwchSUQ3lQ0tSFNKDayITOwFa0T0Ph7DUXxM2zOIp9UTLr/HVIdLz5auTyS64QAVq0r1laSBs9dAeyuve8oyW+R0R73kV3ubLa+dDcya48lKta2AokA6J60Fxu21Hl5hwKwG/Y3DkXSCp1twritKd5EusAJJ5QddRy9fMgeJrZuyliEnEuztlNquAKb7K9JkzYPi7EK4yQ0ytP3LhQErKfEd4Aao7Ys5zaw2022x5jkNrgkkmNDubzLWz4+qlQHX5q47TmeYWiNIjWnK77b2JLxffbjXB1pLrp8VqCVAKV7z1oN17O1gvrPHrDi9Zbk2I15irfKoqx3SSsEFXT1R0PU+ypT+EStV0l8ZrNKi22Y+wbBHZ71phSk94ZUgBGwNcx5h08eo9tV7azjNWpT0prMMgRIfCQ86m5PBbgTvl5jzbOtnW/DdJecZrLQhEvMMgkIQ4h1CXbk8oJWhQUlQ2rooEAg+IIBoLiXi1XRXwcaLWm2zDP9GYHooYV3v/AGmg/I1vw6+HhWm/B12i7W/iZkL8+1zojSrOptK3o6kJKg+3tIJHiNHp7jVc/rh5/wDs4yb+dn/8VfDWfZ00kpazXJG0lSlEJujwGySSfleJJJPvNBmO0FAnQ+NWauy4UmO3IyK4LYW60pIdT6Ss8ySR1HUdR7atb2+bJeM1wvBrtiVqnXyKp91YVAjqfJS8hstK9QHorXQ+8e2qUXy/32/LaXfL1cropkENGZKW8UA63y8xOt6Hh7Kydu4gZ7bbSi0W7N8lh25CChMRi6vtspSfEBAUEge7VBJ/AvCLzi/agxe1PpTPdt09n4wdhJU6zEdU1zKZWsDl50E8quugoEbOqkLthXKbinasxnNzbZT9vtTEB9xxLR5Fcj7ilI5vDmI2PHzqsFlyfJbIh1uy5Ddrah5XO6mJNcZC1e1XKRs+81yXjLsrvMIwrvk96uMUqCizKnuuoJHgeVSiNigsx8IE7EyeBgWe48/8Y2KbEfZRMZG20q5kKSlR+5UdrHKeu0KGtg1X5jDm4fDKbl+QqkwXJTrUfH450gzV8wU87ykEqZQ2CnmGhzrR1OiDjcWzbMMWYej45k12tTD528zFlrQ24enUpB0T08dbro5Hfr3kdzXc8gu866zVjSn5j6nV68htRJ0PZ4CgslxOvHFrs73lmJhV7mJwWY229b2pDaZbDC1ICnGCXAS2rmJVoEbCgevXWN7ROf3fiB2esMu+bWyDByZ+8SFwe4SUKfgJb5VPchJKQpzlHiAe72Brwg+y51mllmyplqyu9Q5EwASnGprgL+hoc/X1tDw3vVY7Ib5eciurl1v91m3Se7oLkS31OuEDwHMok6HkPAUGOpSlApSlApSlApSlApSlBL/ae/TuGn/27s/9hdSrleTWR9vAuGGcv91imQ4BZVNSjrdrnhtaWpSSfAeCF+1J69Ad1LpQS/2zCD2lsvIOwXY35qzViMgyex3/ALWEzh3mb4Z+K8gt92xacdAxpCG47jkUn/NvaOh9/rzI1RilBJWQ3WJYe1Dcb5cGy5Dt2auy5CANlTbc0rUNefQGpZVwuydPaA+uybzbvqE+Pfj36pvjJruvRu977k5efvOfl+x8mt78tVVylBs+XZJ6TxUvGYWIqid7fH7lBIGi1t9TjfzEdPyVYTjldLBZeGF4z7HnktXDi2Yygwk+tFYaQFTU/wAZ/ST4+J61VSlBOnZfi2jHLVk/FHJLkuzxYEc2e0TkxfSFNT5KFDvENhSSpTbfMdbHRfj0rt8eYFgyrg/i2bYtfX8gXjaUY5eJj0AxXXEgc8ZxTZUogBJKObZ2ddfKoApQS/wu/W0cZf3Ww/nTtanwJ+3fgf8ACS3fnLdaZSgsZwZ/X7ufwku/9mTW7dl3L7DxLyzHpeVSe54g4tGktxpq+qrzCXGdb7tZ83Wufm2epTs9fW1T2lBLHZautst3EWfDn3Ni0SLxYptrt1yfVytw5bzfK04o+Q2Cn+MK3a28Fo2N8N8klcTcMVZ5UK0zZFtv/wBUrJZlykp/Q7KI6dlXMojR316dOtVxpQKm3skWq4X268RbLaYxk3CfgdxjRmQoJLji3Y6Up2SANkjqSBUJUoN04jcLM94dx4cjMsfctTU1akR1KkNOc6kgFQ+xrVrWx41tfFf9bjwW/cr5+fVEFKCyFwyLCLF2buEgzDh23l5ebvHoxVeH4Po2pyuYfYvl820+Phy++ou4SyIUvtE4jLtlvFtgvZbCcjQw8p0Rm1S0FLfOr1l8oIHMep1s1oFKC1/aI4cXBcDM7zD7PqrYtMp+arJxlCnttpe7xx/0Ur0OdAV6uvV5+nhUadm1WbJZyJjFbJjeUwJSGEXPHLq62VzkJUooW02pSVFTZJ9YeBWOivKG6UExdpvF8cx6Zjcq12FOK3q5wXH7zjqJnpKbe4HNIIVslPeJ2rkPyQB0FSNnV/4Y4szwlyPJ7RlV1ye2YXapVujQ5TLEBwIU4pvvVEF0KCwonl6aCRrxqq9KCUOFNs+ujx3XdciQ0i3OzJN/vygPsTcdClPvb39yT6nn8oVMuT3LE+L+H8QbFZMxmZBfXpS8os8R+zqi+ihhAQ5HbUXFc+2AlIHq9Ub0aqVSgmTs+Bm/YTxD4cxbjGgZBksWEq0mQ6GkSVx3lLXG5yQApwKAAJ0dVqvEPhPmXD60R52YRoFrfkyCyzAVPaclKSE7LvdoUr7H5b34kdOorRaUFv8AAcTXlHZo4ccnB/64vozt23/0+q2+g80r8FSe85+X367v31XrLbLeca40LtTNoZwm5sXJhyLDeuKXUW0r5HGiqQokEJCkK5iennWi0oLY5/jsrIsPyy9cWeG9gxy6RbY9Mg5baZqG27nLBHdI7tKyl4vb0VDZG96ST0qdSlApSlApSlApSlApSlApSlArbcQ4eZLk1lfvkNNsg2hh8R1T7pc2ITCntb7tK3lpCla66G9Dx8RWpVOuOY2wjgxiFzdxDJOIS7jNnBmBFluohWtaVhBQUMpKy64EpXsqSCkJ1vRoIjzLGL3iF+dsl/hiLMbQhwBLqXELQtIUhaFoJSpJBBBBIr9wzFr/AJlfUWLGbcu43Jxpx1EdC0pUpKElatcxAJ0D08T4DZqUO1tAlxMjw9T9jRZ2hikOOmKypTjLDjRWlbCXFE8xbJCVbUSD4nrWE7M7jjPESc604ptxGOXdSFpOikiC8QQfI0GFynhhlmO2F++S0WmXBiPJjzV267RphhuK+Sh4NLUUEkEdemxr2VxXvHpciLhUSBivxdMvMQJYe+MA78auKkuNpd5SdMdQG+U6Hqc3nWR4bKV9bHii3zHkNmhK5d9OYXOIAde3SiPpPtrcpP8A2r2ff3tH/wB6vUEd5tw2zDDZ1utuQW1uPcritTbEBqU0/JCgUgBTbalKQVc6eXeuby3WRvPB7OLVbblLfjWl920tF+5Qol4iyJcNsfKW6w24VpCdjfTp4nQB1mo9ufyftavW929yLW/LzB4C4Nr06yoSVFKkE+C9gBPsOunlUl4HY3nZmdItfB29WZ5eO3eKbpe5kh2c+8uK8A0hBCG1vOEbKUpUQArR11oIPxvhdmN9xtnJ48S3xLC8440m53C5x4kcOIIBQpTq08qiVDQPVXXW9HXzHwu+WDipZMWyDGxcpcidECbamcltu4turTyIRIQSkJcB5Q4Dob35VsGdPSGuzjw5hFS0NLu16W42em1oMYAn3jmUPpNbYABxa7O6gBzKttlKj5nVzeA39AA+YCgi6zYNkGUZHe4lktTENm2LccmmVObaj29sLKQHJDigjofVBJ2rXTddbN8Iv+HogPXduG5DuSFrhTIM1qXGkBBAWEOtKUklJIBG9jY9oqU8XsUeRZ+JN7kWzIMnabyFuM9jtpkqZS6C48pMmQUpUstoIKU6HyleNdnjpaZkfs/4U4MEOJssXacpyClbzq2A4hjkW+XSVIW4QSArW0hOhqg0yRwG4mRpy7ZLtFvj3cJWtq1OXeIJshKd7U0z3nO4OitFIO9HW6jGrC5zJff7fMdx11a1pzO3Ngk+CUuspA+YJAFQlm6ENZnfG20hKEXGQlKQOgAcVoUG/wCL8NFZRwKZyS0wobVyZySTFm3KbcERY7MVMaOpCVrdWlpP2RxWvujvXUDpqtyw684lnNntGR2VuaZS48hmOzOQWbjHWvSe7fbJTyr0pPOD06+YrY5TzqeyjbmEuKDS85lqWgHoopgxtE/NzH8tZW6IScY4EPkbdUiQgrPiUpuz3KPmGzQaixgmR5fxFyKx4hii2JEKQ+6u1JmocMFlMgNd33q1DvAhTiEle+oBUegJHVgcO8ouGZzMUt8eFLnQWy9LeZnMqisNJAKnFyObuwgcw2oq1s68elSBbpciFnHHl6K6ppw2m5NFST15V3WKhQ+lKiPprFcB7C1c8Yzq5PN3y7N2+FG7zH7RJLLtzQt/RKyELUWmylKlADeynqBug1HM8ByLFLbCutxRb5VsnLW1Hn224MzY63Ea5kd4ypQCgCDo6NbC1wM4jF6NFft9qiTpiEuQYUm9RGpM1KkBaSy2XeZzYUB6vnseIIG98TrRKZ7MEV1jh09hzCMpEpcRTj7zvdLjqbRIe70lSEqWOROwlJ5eg67OE4xyHx2n7WoPOBTHxCGSFEFv9CRVer7OpJ+c0EZYnh+Q5Rf3bHZ7f3kyO247JDzqGERm0dFrdW4QlCUkgEqI6kDxIFdzMsAyPFLZDu1wRb5VrmuLZYn224MTY6nEAFTZcZUoBQBB0dHXh4GpSx6wN3PNeMtycj366tW6U93lhs8juXbkhc4g85CVK7pspStQSk/c+Ark4lWiY12aWnmOHSsPit5M3JXGLr7z5bVHW2l97vSVIQpQ5EnSUkpOh12Q0prgZxHL8eK/bbZDmzG0uQIcq8xGpE5KkBYLDanNudCB6u+u0+IIGo4riOR5Pkwxuy2t6RdNr52Vab7oI+WpxSiAhKddSogCpP4zSX1dp21BTq/0OmxJZ6/IHokVWh/GUT9NZ2LDkXLiJ2gcVx9P/wAQXJ2a3bY7XRyQ21cg4+y35qUppKvUHVQB6dKDWbPwil23h/m+R5BDttxiwbSldtuNturcthqV6UyhSSphwp5+Ra/VX5HYHTY1HGOGGV3+xxb2wm0W+3zXVMwnrpdo0L0taTyqDQeWkr0rpsDW9jewakPhnimXWHgTxXn3qBOtNtlW2M01HmNKZVIdRLb2tKFaJCAopKta24Bve67f1JBjFcCaTw9yTiTIuVoRIjPrnPot8PvHVkxW0sAcvIrZWVODRUSQBQRRbeHGb3LNp2FQseku5DAS6qRA50JcSGxtWtkBXTqAknm2OXexXNlXDPKscsK77Mbtcu3syBFkvW26x5oivEEht3uVqKFHR8fMaqcr8i4W/tJcR5ymUxFu4NPlRHGN9ypPxYnS2VfdI5kkBQ2PV91RPwyAVwY4shXUJt9sWB7FfGLI38+lEfSaDXcut7cbD8Rnt4t8UpnRH1Gf8Yd/8aFD60Fzu9/YeUpKOXpvl5vOuPhfbfjbM48H6mvql540tfxd6d6Jz8kZ1fP3uxru+XvNfdcnL91Wz8T/ALTPCT8W3L/eT9OzB9ua3/i26/7tk0GBw7htl+V2KRf7TAiizRXzHlXCXPYjR46+UK+yLdWkJGlJ0T0JIA69K+L1hN+xXLLRa75amZfp5ZfipjzW3GJ7K18o7t9tRTpRBTzA9K2VD7qOyi4wlxSW3M4SVpHgrUE63+U1lZIBwTgas9VfGE5G/wAET0ED5tqJ+k0HBinCpeX5RxLji2N2BWPMy1xLYb1GAiyUyUoRHW68r7I2hJcSXdgEpTtQKgFaVHs62+Hl9mu40mQ5DusaMq8puI1FKkvbYDQOnA5y77wbCe78fWqW4UWTO4zdoODCjvSpci33pDLDKCtxxXxmydJSOpOgToeQNaTYm3GezdmbTram3EZNbErQoaKSGZYII8jQYvHeE+Y3u0QLoy3Z4TFz38XIuV4iw3ZulcpLTbriVKHMNb1onwNdvhfwvuWU5RkVhuLRgSbLbpzjzL05iK4iU0y6W0KDxG094gBZHRKdkqSPWqSpOK+hPYZEa4dXziFMfskN9i73Ge+i2stqR3gabDIASyyVaUVueStgAiubK7ZOe7WHEePHgyFO3Cx3tcNCWjuSHLc8ElsfdBR6AjezQQxb7C+xiuZmVjTU9+0PRmXbm1dE8ltUXlIPKlCimQHCOUKSSBrmB0d1hckx68Y69CavEP0ZU6E1PikOIcS6w6NoWCkkaI308QQQQCNVvmCx34nBLizFlMuMSGV2lt1pxJStChLWClQPUEHoQa3vg/CtOcYHj2QX5bam+GEt566oUrS5FsKFymEdflfZ21tADrp0UESRuGWbP5tLw5NmCbzBY9ImtqlNBuI1yJWVuu83dtpAUnfMoaJ0evSutmmB5FicKFcbk1BkW2cpSI0+3TmZkZxaflI71lSkhQ2PVJBqV+Dl7ey6wcXHJli+qjIb2qJclWpuS4y7LZQ+4uQGy2QtXKVtK5B4hPgdAV+3WW5YeD4XM4bWvF7Jcb42tiJdLhMVIlPNsOAvNNLST3aUr5VL6DZQOuugV/pSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlApSlArJWi/320MvMWm9XK3tPjTyIspbSXP2wSRv6axtKDnelynozMZ6S84wwVFltbhKW+Y7Vyg9Bs9Trxr5jSJEVwuRn3WVlKkFTayklJGiNjyIJBFcVKDkaffaadabecQ28kJdSlRAWAQQCPMbAPXzAr7MyYTHJlv7jDUc94fsXXm9X73qSennXBSg+3XXXXlPOuLW6tRUpalEqUonZJPtrKTsoyWe/GfnZFd5T0T/AKs49NcWpny9Qk+r9FYilBzOypLzDbDsh5xptSlNoUslKSrXMQPInQ37dCtp4W5NbMe4gWLJMkaulyjWR9qTFYjSEpV3jSw42jawQG+YdQNeJ1qtQpQZleSXZnJp1+tM+ZaZUt910riSFNrSFqKinmSQSOtdGRc7lIQ+iRcJbyZLnevpW8pQdX98rZ9Y+811KUHYXOmrn/GC5khUwLDnpBcJc5x1Cube9jXjXC4tbjinHFKWtRJUpR2ST5mvmlBymRIMURC+6Y4WXA1znkCyACrXhvQA37q+jLlFEdBkvFMbfcAuHTWzzHl+969ennXBSg5/S5XO+v0l7mkgh9XeHboJCiFffdQD18wDXJarlcbTNTNtU+VAlIBCXozymlp346Ukg11KUHel3i7S1y1y7pOkKmFJlF2QpRf5TtPPs+to+G96rgelyn5QlPSXnJA5dOrcJWOUAJ6nr0AAHs0K4KUHdgXa6W+5fGcC5TIk7ZV6Sy+pDuz4nnB3s+fWv2ZeLtMdluzLpOkOTCkylOyFLL/KdjnJPraPUb3XRpQc70uU/KEp6S85IHLp1bhKxygBPU9egAA9mhRMyYmf6emW+Jned734cPec+983N47313XBSgydzyG/3R5x653y5znXWw04uRLW4paAdhJKidp2AdeG6/Id/vsO1PWmJerlHtz+++iNSlpZc348yAdH6RWNpQds3O5EpJuEslMf0ZJLyujOiO7HX5HU+r4da4WpEhpl5hp91DT4AdQlZCXADsBQ89EA9fOuKlByuyJDrLLDr7q2mAQ0hSyUtgnZCR5bJJ6edIsiRFeD8V91h0AgLbWUqAIII2PaCR8xripQcvpEj0X0Tv3fR+fvO65zyc+tc2vDeum6+jLlFthsyXuSOSWE94dNEnZKR5bPXpXBSg7sK73aDczdIVzmxp6ipRlMvqQ6Sr5R5wd7Ozvr13XCqXKUy6yqS8Wnlhx1BcPKtY3pRHmep6n2muClBkmr/fWrKqyNXq5ItaiSqEmUsMEk7O298vj7q+GbzeGbhHuDN1nNzIyQiPIRIWHGkgaASoHaQASND210KUHZcnznPSe8mSF+lr55PM6o98re9r6+sdknZ86+GJUlhl5lmQ802+kJeQhZCXADsBQHiN9etcNKDmhypMKU3LhyHo0hpXM260soWg+0EdQa7F5vF2vUoS7zdJ1ykBPKHZchTq9ezaiTqujSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUpSgUr9SCo6SCT7BX33L3+aX/qmg46V+kEEgjRFflApSlApX6ASQANk0UlSTpSSk+8aoPylKUClKUClfpBGtjx8K/KBSv0Aneh4eNflApSlApSlApX7o63rpX5QKUpQKUr9CVFJUEnlHiddKD8pSlApSlApSv0AkgAbJoPylKUClKUClfujreulflApSlApSvtLbihtLayPaBQfFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoMpi+Q3vF7w3eMeukq13BpKkokRnChaQoaI2PaDU7X/ixxKY7POK31rN74i5yr9cGH5IlK53G0NsFKSfYCTr5z7arrUgX3IbPJ4B4zjLEznu0K+TpUiP3axyNONshCuYjlOylXQEnp1oNKvNzuF5usm63WY9MnSnC6++8rmW4s+KifM11KUoFKUoJiZub/CjhjjN1x1llnK8qZenOXZaEuOwYqHlNNtMcwIQpZQpSlj1taAIrs8NeIN74i5ZbsA4lTnMktN+kIgtSJaErlW99w8rb7DuuZJCiNp3yqBIIrA47fcTyzArdhObXJ6wy7K46qy3tEdchpLTq+dyO+2j1+Xm2pK0gkEqGtVkcYkcPuF9wTllvy5nNMkh+taIkOA+xEjv6IS++t5KFKCPEISnqdbIG6CK7xBdtl2mW18pU7EfWwsp8CpCik6/JXVrkkPOyH3H31qcdcUVrWo7KlE7JNcdApSlBKd+cVlnZ3st0P2SfhtxXapOiCowpO3Y6leYCXEvIHzit6lWuEngs9whEZBvsOxIzNa0oHOJZVzrZPnzCEtB17UeVR92fsixW13262DPZS4+J3+AY85xLKne6cbWl5lzlQCokKRy9B92d9Oo68HiO79f0cR5TW2Hbsp96OUDXoayUKY0Omu4UUa9ntoO3EIxjs5y5Gwidml2TGb9br6DD0tZ17FPrQP8AyjUYVI3H3IMbuuTW6yYTMdl4rj1ubt9teW2psvdS467yqAIKnHF+I2dCo5oFKUoFWe7QVis2e3+ba7LDTFzfHrPAfQy3/wDWoZhMuL0PN9rmUQPFSOnXl6VhqS+MObNSuMwzHC7w6lUeLbjFmNIU2pDrMNltWgoA9FoUOo0deYNB2sm/WuYb/CS5/wB1HqKqmnjXxAxDMeFOMs2WOi2303SXPvVuaZUllp9xtpKnGjrl5HCgq5dkpJUPDVQtQKUpQd/HFWxOQ21V7S4q1iW0ZqW/llnnHeAe/l3qrGZtcOOhu1yunDm9fG+EtOKXbY+NuMyIjEQKIbbXFSCpPKkAKStHiDvfjVbLaIRuMYXFUhMLvUekGOAXQ3sc3IFEAq1vWzrdSlj9h4fWLIYeQWzjaiKzFfS8gM2aY3cAkK3yhISW+fp/nOX3+VBFc592VNflPJQl15xTiwhsISFE7OkpACR7gABXDWxcTL/FyriFf8kgwfQItzuD0pqPoAtpWskA66b69dee612gUpSgmTgjYrnknBrinZ7Ow2/NeFoLaFvttA8slaj6y1BI6A+JrYezjwpzqx8cMTu1ztURmHGnhbq03SK4QOVQ6JQ4VHx8gajfCchs9u4Q8Q7DNl91cbx8WegM92s993MhS3PWA5U6SQfWI35br57P1/tOL8Z8XyC+y/Q7bBmhyQ/3al8ieUjfKkFR8R4A0GkSP09z9sf6646+3iFPLUOoKiRXxQKUpQSlgv63DiX+M7L/AGpNRbW/YpkFog8E85x2VM7u6XSfa3YbHdqPeoZL5cPMByjXOnxI3vputBoFKUoFT5nfEHN8O4YcLYmLZTdLPHkY84463FfKErX6W8OYgeeulQHUz5DxhvNpwHA7JhGUvxV2+zrZubLbGuR/0h1QBK0dfUUk7SSOtB1+JUmZkfA/HsxyxhpOUPXp+HGmFgNPXGAlpC+8WAAF8jiuUL1shWtnVRBWXyvJsgyu6m6ZJeJl1mFIQHZLpWUpHglI8EpHsGhWIoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoFKUoP/2Q==" alt="Krisala x Hiranandani Township" style="height:48px;width:auto;display:block;" />
+    </div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#properties">Properties</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact"><button class="btn-gold nav-cta">Enquire Now</button></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <div class="ticker-wrap">
+    <span class="ticker-track">
+      🏆 PHASE 3 NOW OPEN &nbsp;•&nbsp; 🏇 40-Acre Della Resort &nbsp;•&nbsp; ⭐ 5-Star Resort Living &nbsp;•&nbsp; 🌿 IGBC Platinum Certified &nbsp;•&nbsp; 🏡 Villa Plots from ₹3 Cr &nbsp;•&nbsp; 🏢 2 BHK from ₹75.99 Lakhs &nbsp;•&nbsp; 💎 Penthouses at ₹13.5 Cr &nbsp;•&nbsp; ⏳ Limited Units — Register Now &nbsp;•&nbsp; 🏆 PHASE 3 NOW OPEN &nbsp;•&nbsp; 🏇 40-Acre Della Resort &nbsp;•&nbsp; ⭐ 5-Star Resort Living &nbsp;•&nbsp; 🌿 IGBC Platinum &nbsp;•&nbsp; 🏡 Villa Plots from ₹3 Cr &nbsp;•&nbsp;
+    </span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge"><span>Hiranandani × Krisala × Della Resorts</span></div>
+    <h1 class="hero-h1">Pune's Next Iconic<br><em>Luxury Township</em></h1>
+    <p class="hero-p">A sprawling <strong>105-acre</strong> premium township masterfully blending race course-inspired living with 5-star resort luxury — right in the heart of Pune.</p>
+    <div class="hero-btns">
+      <a href="#contact"><button class="btn-gold hero-btn-gold">Register Your Interest →</button></a>
+      <a href="#properties"><button class="btn-outline-hero">View Pricing</button></a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val" data-count="105" data-suffix=" Ac">0</div><div class="hero-stat-lbl">Township Size</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" data-count="40"  data-suffix=" Ac">0</div><div class="hero-stat-lbl">Della Resort</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">5★</div><div class="hero-stat-lbl">Resort Living</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" data-count="8"   data-suffix=" Mo">0</div><div class="hero-stat-lbl">Plot Possession</div></div>
+    </div>
+  </div>
+  <div class="scroll-ind"><div class="scroll-ind-txt">SCROLL</div><div class="scroll-line"></div></div>
+</section>
+
+<!-- ═══════════════════════ PARTNERS ═══════════════════════ -->
+<div id="partners">
+  <p class="partners-label">A Prestigious Three-Way Collaboration</p>
+  <div class="partners-row">
+    <div class="partner-item">
+      <div class="partner-icon"><span>H</span></div>
+      <div><div class="partner-name">HIRANANDANI</div><div class="partner-sub">Legacy Developer</div></div>
+    </div>
+    <span class="partner-x">×</span>
+    <div class="partner-item">
+      <div class="partner-icon"><span>K</span></div>
+      <div><div class="partner-name">KRISALA</div><div class="partner-sub">Pune's Pioneer</div></div>
+    </div>
+    <span class="partner-x">×</span>
+    <div class="partner-item">
+      <div class="partner-icon"><span>D</span></div>
+      <div><div class="partner-name">DELLA RESORTS</div><div class="partner-sub">5-Star Hospitality</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ HIGHLIGHTS ═══════════════════════ -->
+<section id="overview">
+  <div style="text-align:center;margin-bottom:60px" data-anim>
+    <p class="section-label">Why This Project</p>
+    <h2 class="section-h2">Key Highlights</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Pune's most anticipated luxury township landmark — a once-in-a-generation investment opportunity.</p>
+  </div>
+  <div class="highlights-grid" data-stagger>
+    <div class="h-card"><div class="h-card-icon">🏇</div><div class="h-card-title">40-Acre Della Resort</div><p class="h-card-desc">Exclusive Race Course &amp; Polo Club — a world-class lifestyle destination built right into your township.</p></div>
+    <div class="h-card"><div class="h-card-icon">🌊</div><div class="h-card-title">Natural Pond Quarry</div><p class="h-card-desc">A breathtaking natural water quarry offering serene waterfront views and a rare connection with nature.</p></div>
+    <div class="h-card"><div class="h-card-icon">⭐</div><div class="h-card-title">5-Star Resort Living</div><p class="h-card-desc">Every corner of this township is designed to deliver a permanent five-star vacation lifestyle.</p></div>
+    <div class="h-card"><div class="h-card-icon">🎭</div><div class="h-card-title">Premium Hospitality</div><p class="h-card-desc">Destination weddings, corporate MICE venues, 24/7 fine-dining, spas, gyms &amp; swimming pools.</p></div>
+    <div class="h-card"><div class="h-card-icon">🛣️</div><div class="h-card-title">Ring Road Proximity</div><p class="h-card-desc">Proposed Ring Road just 5 minutes away — seamless connectivity to all corners of Pune.</p></div>
+    <div class="h-card"><div class="h-card-icon">🌿</div><div class="h-card-title">IGBC Platinum Certified</div><p class="h-card-desc">Partnering with TERI to improve AQI and achieve IGBC Platinum Green certification.</p></div>
+    <div class="h-card"><div class="h-card-icon">🏆</div><div class="h-card-title">Legacy Developer</div><p class="h-card-desc">Hiranandani — the visionary who transformed Powai, Panvel &amp; Thane — now arriving in Pune.</p></div>
+    <div class="h-card"><div class="h-card-icon">📈</div><div class="h-card-title">High ROI Potential</div><p class="h-card-desc">Pre-launch exclusives, partner privileges, and strong investment upside in Pune's fastest-growing corridor.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROPERTIES ═══════════════════════ -->
+<section id="properties">
+  <div style="text-align:center;margin-bottom:50px" data-anim>
+    <p class="section-label">Phase 3 Pricing</p>
+    <h2 class="section-h2">Choose Your <span>Dream Home</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Four distinct property types crafted to match every lifestyle and investment ambition.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs-row">
+    <button class="tab-btn active" onclick="showTab('arcadia')">🏢 Sector Arcadia</button>
+    <button class="tab-btn" onclick="showTab('icon')">👑 Sector Icon</button>
+    <button class="tab-btn" onclick="showTab('plots')">🏡 Villa Plots</button>
+    <button class="tab-btn" onclick="showTab('penthouse')">💎 Penthouses</button>
+  </div>
+
+  <!-- ARCADIA -->
+  <div id="tab-arcadia" class="tab-content active">
+    <div>
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=720&q=80" alt="Arcadia"/>
+        <div class="prop-tag" style="background:#C9A84C">PREMIUM</div>
+      </div>
+      <p class="prop-desc">Premium · Practical · High-Absorption. Designed for first-time luxury buyers and smart investors looking for the perfect entry into this landmark township.</p>
+      <div class="prop-details">
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">2 &amp; 3 BHK configurations</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Possession in 24 months</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Pre-reg savings up to ₹6 Lakhs</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Within Della 5-Star Resort zone</span></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="prop-h3">🏢 Sector Arcadia</h3>
+      <div class="price-cards">
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">2 BHK Small</div><div class="pc-area">Carpet: 750 sqft</div></div><div class="pc-price">₹75.99 Lakhs*</div></div></div>
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">2 BHK Large</div><div class="pc-area">Carpet: 825 sqft</div></div><div class="pc-price">₹85.99 Lakhs*</div></div></div>
+        <div class="price-card featured"><div class="pc-popular">POPULAR</div><div class="pc-row"><div><div class="pc-config">3 BHK Small</div><div class="pc-area-feat">Carpet: 1075 sqft</div></div><div class="pc-price-feat">₹1.12 Cr*</div></div></div>
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">3 BHK Large</div><div class="pc-area">Carpet: 1165 sqft</div></div><div class="pc-price">₹1.24 Cr*</div></div></div>
+      </div>
+      <div class="savings-box"><div class="savings-label">💎 PRE-REGISTRATION SAVINGS</div><p class="savings-txt">Save up to <strong>₹4 Lakhs on 2 BHK</strong> &amp; <strong>₹6 Lakhs on 3 BHK</strong> during pre-registration.</p></div>
+      <a href="#contact"><button class="btn-gold prop-cta">Get Full Price Breakout &amp; Floor Plans →</button></a>
+      <p class="prop-note">*Tentative pricing. Taxes, floor rise &amp; view premium extra.</p>
+    </div>
+  </div>
+
+  <!-- ICON -->
+  <div id="tab-icon" class="tab-content">
+    <div>
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=720&q=80" alt="Icon"/>
+        <div class="prop-tag" style="background:#8b5cf6">ULTRA-PREMIUM</div>
+      </div>
+      <p class="prop-desc">Exclusive · Iconic · Privileged. For those who refuse to settle for anything but the absolute finest — generous spaces, iconic views, and unmatched prestige.</p>
+      <div class="prop-details">
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">3 &amp; 4 BHK + Duplex options</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Possession in 24 months</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Pre-reg savings up to ₹9 Lakhs</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Panoramic resort views</span></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="prop-h3">👑 Sector Icon</h3>
+      <div class="price-cards">
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">3 BHK Ultra</div><div class="pc-area">Carpet: 1285 sqft</div></div><div class="pc-price">₹1.37 Cr*</div></div></div>
+        <div class="price-card featured"><div class="pc-popular">POPULAR</div><div class="pc-row"><div><div class="pc-config">4 BHK Ultra</div><div class="pc-area-feat">Carpet: 1540 sqft</div></div><div class="pc-price-feat">₹1.63 Cr*</div></div></div>
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">3 BHK Duplex</div><div class="pc-area">Carpet: 1490 sqft</div></div><div class="pc-price">₹1.73 Cr*</div></div></div>
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">4 BHK Duplex</div><div class="pc-area">Carpet: 1860 sqft</div></div><div class="pc-price">₹2.15 Cr*</div></div></div>
+      </div>
+      <div class="savings-box"><div class="savings-label">💎 PRE-REGISTRATION SAVINGS</div><p class="savings-txt">Save up to <strong>₹7.5 Lakhs on Ultra units</strong> &amp; <strong>₹9 Lakhs on Duplex</strong> units during pre-registration.</p></div>
+      <a href="#contact"><button class="btn-gold prop-cta">Get Full Price Breakout &amp; Floor Plans →</button></a>
+      <p class="prop-note">*Tentative pricing. Taxes, floor rise &amp; view premium extra.</p>
+    </div>
+  </div>
+
+  <!-- PLOTS -->
+  <div id="tab-plots" class="tab-content">
+    <div>
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=720&q=80" alt="Villa Plots"/>
+        <div class="prop-tag" style="background:#10b981">EXCLUSIVE</div>
+      </div>
+      <p class="prop-desc">Build your dream villa on your own terms, within the Della 5-Star Resort. Premium-sized plots surrounded by natural beauty and elite amenities.</p>
+      <div class="prop-details">
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Plot sizes: 4,500–7,500 sq.ft</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Possession within 8 months</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Customise your dream villa</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Within Della 5-Star Resort</span></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="prop-h3">🏡 Villa Plots</h3>
+      <div class="price-cards">
+        <div class="price-card"><div class="pc-row"><div><div class="pc-config">Premium Plot</div><div class="pc-area">4,500 sq.ft</div></div><div class="pc-price">From ₹3 Cr</div></div></div>
+        <div class="price-card featured"><div class="pc-popular">GRAND</div><div class="pc-row"><div><div class="pc-config">Grand Plot</div><div class="pc-area-feat">7,500 sq.ft</div></div><div class="pc-price-feat">Up to ₹6 Cr</div></div></div>
+      </div>
+      <div class="savings-box"><div class="savings-label">💎 EXCLUSIVE BENEFITS</div><p class="savings-txt">Exclusive pre-launch partner benefits available — contact us for personalised offers.</p></div>
+      <a href="#contact"><button class="btn-gold prop-cta">Get Plot Details &amp; Site Plan →</button></a>
+      <p class="prop-note">*Prices depend on size and category of plot.</p>
+    </div>
+  </div>
+
+  <!-- PENTHOUSE -->
+  <div id="tab-penthouse" class="tab-content">
+    <div>
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=720&q=80" alt="Penthouse"/>
+        <div class="prop-tag" style="background:#ef4444">RARE OFFERING</div>
+      </div>
+      <p class="prop-desc">An ultra-rare offering for the most discerning buyers. Sky-high luxury with sprawling terraces, panoramic views, and concierge-class living.</p>
+      <div class="prop-details">
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Expansive 5,700 sq.ft</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Private sky terrace</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Dedicated concierge</span></div>
+        <div class="prop-detail"><div class="check-dot">✓</div><span class="prop-detail-txt">Highest floor, ultimate views</span></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="prop-h3">💎 Penthouses</h3>
+      <div class="price-cards">
+        <div class="price-card featured"><div class="pc-popular">EXCLUSIVE</div><div class="pc-row"><div><div class="pc-config">Penthouse</div><div class="pc-area-feat">5,700 sqft</div></div><div class="pc-price-feat">₹13.5 Cr</div></div></div>
+      </div>
+      <div class="savings-box"><div class="savings-label">💎 PRIVATE VIEWING</div><p class="savings-txt">Exclusive pricing for serious buyers. Contact us directly for full details and private tours.</p></div>
+      <a href="#contact"><button class="btn-gold prop-cta">Request Private Tour →</button></a>
+      <p class="prop-note">*Subject to availability. T&amp;C apply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ AMENITIES ═══════════════════════ -->
+<section id="amenities">
+  <div style="text-align:center;margin-bottom:60px" data-anim>
+    <p class="section-label">World-Class Facilities</p>
+    <h2 class="section-h2">5-Star <span style="color:var(--gold)">Amenities</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="amenities-grid" data-stagger>
+    <div class="amenity-card">
+      <div class="amenity-img-wrap"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=80" alt="Race Course"/></div>
+      <div class="amenity-body"><div class="amenity-title">Race Course &amp; Polo Club</div><p class="amenity-desc">8-acre world-class racing &amp; equestrian experience within your township.</p></div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-img-wrap"><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=640&q=80" alt="Pool"/></div>
+      <div class="amenity-body"><div class="amenity-title">Luxury Pools &amp; Spas</div><p class="amenity-desc">Resort-style pools, wellness spas &amp; relaxation zones for everyday indulgence.</p></div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-img-wrap"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=640&q=80" alt="Restaurant"/></div>
+      <div class="amenity-body"><div class="amenity-title">Fine-Dine Restaurant</div><p class="amenity-desc">24/7 world-class culinary experiences right at your doorstep.</p></div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-img-wrap"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=640&q=80" alt="Wedding"/></div>
+      <div class="amenity-body"><div class="amenity-title">Destination Weddings</div><p class="amenity-desc">Grand event &amp; wedding venues for truly unforgettable celebrations.</p></div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-img-wrap"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&q=80" alt="Gym"/></div>
+      <div class="amenity-body"><div class="amenity-title">Premium Gyms &amp; Fitness</div><p class="amenity-desc">State-of-the-art fitness &amp; wellness facilities for an active lifestyle.</p></div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-img-wrap"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=640&q=80" alt="Nature"/></div>
+      <div class="amenity-body"><div class="amenity-title">Natural Pond &amp; Landscape</div><p class="amenity-desc">Serene quarry water pond with scenic waterfront promenades &amp; green trails.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ LOCATION ═══════════════════════ -->
+<section id="location">
+  <div class="location-inner">
+    <div data-anim="left">
+      <p class="section-label">Connectivity &amp; Location</p>
+      <h2 class="section-h2">Perfectly <span style="color:var(--gold)">Connected</span><br>to Everything</h2>
+      <p class="location-desc">Strategically placed with seamless access to Pune's key hubs, Mumbai, and the expressway — connecting elite living to city convenience.</p>
+      <div class="conn-cards">
+        <div class="conn-card"><div class="conn-icon">🚗</div><div><div class="conn-label">From Mumbai</div><div class="conn-time" style="color:#C9A84C">~2.5 Hours</div></div></div>
+        <div class="conn-card"><div class="conn-icon">🛣️</div><div><div class="conn-label">Pune Expressway</div><div class="conn-time" style="color:#10b981">~20 Minutes</div></div></div>
+        <div class="conn-card"><div class="conn-icon">🔄</div><div><div class="conn-label">Proposed Ring Road</div><div class="conn-time" style="color:#8b5cf6">~5 Minutes</div></div></div>
+        <div class="conn-card"><div class="conn-icon">✈️</div><div><div class="conn-label">Pune Airport</div><div class="conn-time" style="color:#ef4444">~30–40 Minutes</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="loc-img-wrap" data-anim="right"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=720&q=80" alt="Pune"/></div>
+      <div class="loc-address">
+        <div class="loc-address-icon">📍</div>
+        <div><div class="loc-address-label">Project Location</div><div class="loc-address-val">Krisala Hiranandani Township, Pune, Maharashtra</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ BENEFITS ═══════════════════════ -->
+<section id="benefits">
+  <div data-anim="scale">
+  <p class="section-label">Limited Time</p>
+  <h2 class="benefits-h2">Special Pre-Registration Benefits</h2>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card"><div class="benefit-icon">🏠</div><div class="benefit-label">Arcadia 2 BHK</div><div class="benefit-saving">Save ₹4 Lakhs</div></div>
+    <div class="benefit-card"><div class="benefit-icon">🏡</div><div class="benefit-label">Arcadia 3 BHK</div><div class="benefit-saving">Save ₹6 Lakhs</div></div>
+    <div class="benefit-card"><div class="benefit-icon">👑</div><div class="benefit-label">Icon Ultra Units</div><div class="benefit-saving">Save ₹7.5 Lakhs</div></div>
+    <div class="benefit-card"><div class="benefit-icon">💎</div><div class="benefit-label">Icon Duplex</div><div class="benefit-saving">Save ₹9 Lakhs</div></div>
+  </div>
+  <p class="benefits-note">*Benefits valid during pre-registration period only. T&amp;C apply.</p>
+</section>
+
+<!-- ═══════════════════════ ENQUIRY FORM ═══════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div data-anim="left">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-h2">Register Your<br><span>Interest Today</span></h2>
+      <p class="contact-desc">Block your interest now and unlock exclusive pre-launch partner benefits. Limited units available — don't miss Pune's most iconic landmark.</p>
+      <div class="contact-info">
+        <div class="cinfo-item"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Phone</div><div class="cinfo-val">+91 96073 14314</div></div></div>
+        <div class="cinfo-item"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Project</div><div class="cinfo-val">Krisala Hiranandani Township, Pune</div></div></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <!-- Form -->
+      <div id="form-container">
+        <div class="form-title">Enquiry Form</div>
+        <p class="form-sub">Fill in your details and we'll respond promptly.</p>
+        <form id="enquiry-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div><label class="form-label">Full Name *</label><input class="form-input" name="name" placeholder="Your name" required/></div>
+            <div><label class="form-label">Phone Number *</label><input class="form-input" name="phone" placeholder="+91 XXXXX XXXXX" required/></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" name="email" type="email" placeholder="your@email.com"/></div>
+          <div class="form-row">
+            <div>
+              <label class="form-label">Property Type</label>
+              <select class="form-input" name="type">
+                <option value="">Select type…</option>
+                <option>Villa Plot</option>
+                <option>Arcadia 2 BHK</option>
+                <option>Arcadia 3 BHK</option>
+                <option>Icon 3 BHK Ultra</option>
+                <option>Icon 4 BHK Ultra</option>
+                <option>Icon 3 BHK Duplex</option>
+                <option>Icon 4 BHK Duplex</option>
+                <option>Penthouse</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Budget Range</label>
+              <select class="form-input" name="budget">
+                <option value="">Select budget…</option>
+                <option>₹75L – ₹1.25 Cr</option>
+                <option>₹1.25 Cr – ₹2 Cr</option>
+                <option>₹2 Cr – ₹4 Cr</option>
+                <option>₹4 Cr – ₹7 Cr</option>
+                <option>₹7 Cr+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Message (Optional)</label><textarea class="form-input" name="msg" rows="3" placeholder="Any specific requirements or questions…" style="resize:vertical;min-height:80px"></textarea></div>
+          <button type="submit" id="submit-btn" class="btn-gold form-submit">🚀 Register My Interest Now</button>
+          <p class="form-secure">🔒 Your details are 100% secure &amp; will not be shared.</p>
+        </form>
+      </div>
+      <!-- Success -->
+      <div id="form-success" class="form-success" style="display:none">
+        <div class="success-icon">🎉</div>
+        <h3 class="success-h3">Thank You!</h3>
+        <p class="success-p">Your enquiry has been received. Our team will reach out within 24 hours with exclusive details, pricing, and floor plans.</p>
+        <button class="btn-gold success-reset" onclick="resetForm()">Submit Another Enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">ARCADIA &amp; ICON</div>
+        <div class="footer-logo-sub">Krisala Hiranandani Township · Pune</div>
+        <p class="footer-about">Pune's next iconic landmark — a 105-acre premium township blending race course-inspired living with 5-star resort luxury.</p>
+        <div class="footer-tags">
+          <span class="footer-tag">Hiranandani</span>
+          <span class="footer-tag">Krisala</span>
+          <span class="footer-tag">Della Resorts</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <a href="#overview" class="footer-link">Overview</a>
+        <a href="#properties" class="footer-link">Properties</a>
+        <a href="#amenities" class="footer-link">Amenities</a>
+        <a href="#location" class="footer-link">Location</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Properties</div>
+        <a href="#properties" class="footer-link">Villa Plots</a>
+        <a href="#properties" class="footer-link">Sector Arcadia</a>
+        <a href="#properties" class="footer-link">Sector Icon</a>
+        <a href="#properties" class="footer-link">Penthouses</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Krisala Hiranandani Township. All rights reserved.</p>
+      <p class="footer-disc">*Prices &amp; carpet areas are tentative. Floor rise, view premium, and applicable taxes &amp; charges extra. This is not a legal offer or agreement.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ FLOATING CTA ═══════════════════════ -->
+<a href="#contact"><button id="float-cta" class="btn-gold">📞 Enquire Now</button></a>
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
+<script>
+  /* ─── Navbar scroll ─── */
+  window.addEventListener('scroll', function() {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
+  });
+
+  /* ─── Tab switching ─── */
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(function(el){ el.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('tab-' + name).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  /* ─── Form submit ─── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submit-btn');
+    btn.textContent = '⏳ Submitting…';
+    btn.disabled = true;
+    setTimeout(function() {
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }, 1500);
+  }
+
+  /* ─── Reset form ─── */
+  function resetForm() {
+    document.getElementById('enquiry-form').reset();
+    document.getElementById('form-container').style.display = 'block';
+    document.getElementById('form-success').style.display = 'none';
+    var btn = document.getElementById('submit-btn');
+    btn.textContent = '🚀 Register My Interest Now';
+    btn.disabled = false;
+  }
+
+  /* ═══════════════════════════════════════════
+     ANIMATION ENGINE
+  ═══════════════════════════════════════════ */
+
+  /* ─── Intersection Observer — reveal on scroll ─── */
+  var revealTargets = document.querySelectorAll('[data-anim], [data-stagger], #partners, #location, #benefits, #contact, footer');
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealTargets.forEach(function(el){ revealObs.observe(el); });
+
+  /* ─── Animated number counter ─── */
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1600;
+    var start = null;
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      el.textContent = Math.round(easeOut(progress) * target) + suffix;
+      if (progress < 1) { requestAnimationFrame(step); }
+      else {
+        el.textContent = target + suffix;
+        el.classList.add('stat-done');
+        setTimeout(function(){ el.classList.remove('stat-done'); }, 400);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* Fire counters once hero is in view (it's at the top, so fire on load) */
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.querySelectorAll('[data-count]').forEach(animateCount);
+    }, 1200); /* slight delay so user sees 0→n */
+  });
+
+  /* ─── Parallax on hero background ─── */
+  window.addEventListener('scroll', function() {
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    var scrollY = window.scrollY;
+    if (scrollY < window.innerHeight) {
+      hero.style.backgroundPositionY = 'calc(center + ' + (scrollY * 0.35) + 'px)';
+    }
+  }, { passive: true });
+
+  /* ─── Magnetic hover on floating CTA ─── */
+  var floatBtn = document.getElementById('float-cta');
+  if (floatBtn) {
+    floatBtn.addEventListener('mousemove', function(e) {
+      var rect = floatBtn.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top  + rect.height / 2;
+      var dx = (e.clientX - cx) * 0.35;
+      var dy = (e.clientY - cy) * 0.35;
+      floatBtn.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+    });
+    floatBtn.addEventListener('mouseleave', function() {
+      floatBtn.style.transform = '';
+    });
+  }
+
+  /* ─── Tilt effect on highlight cards ─── */
+  document.querySelectorAll('.h-card').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width  - 0.5;
+      var y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = 'translateY(-7px) rotateX(' + (-y * 10) + 'deg) rotateY(' + (x * 10) + 'deg)';
+      card.style.transition = 'transform .1s ease';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.transform = '';
+      card.style.transition = 'transform .3s ease, border-color .3s, box-shadow .3s';
+    });
+  });
+
+  /* ─── Smooth active nav link highlight ─── */
+  var sections = document.querySelectorAll('section[id], div[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var scrollPos = window.scrollY + 100;
+    sections.forEach(function(sec) {
+      if (sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
+        navLinks.forEach(function(a){ a.style.color = ''; });
+        var active = document.querySelector('.nav-links a[href="#' + sec.id + '"]');
+        if (active) active.style.color = '#C9A84C';
+      }
+    });
+  }, { passive: true });
+
+  /* ─── Ripple effect on gold buttons ─── */
+  document.querySelectorAll('.btn-gold').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var ripple = document.createElement('span');
+      var rect = btn.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height) * 2;
+      ripple.style.cssText = [
+        'position:absolute',
+        'border-radius:50%',
+        'background:rgba(255,255,255,0.4)',
+        'width:' + size + 'px',
+        'height:' + size + 'px',
+        'left:' + (e.clientX - rect.left - size/2) + 'px',
+        'top:'  + (e.clientY - rect.top  - size/2) + 'px',
+        'transform:scale(0)',
+        'animation:ripple .6s ease-out forwards',
+        'pointer-events:none'
+      ].join(';');
+      btn.appendChild(ripple);
+      setTimeout(function(){ ripple.remove(); }, 700);
+    });
+  });
+
+  /* Inject ripple keyframe */
+  var rippleStyle = document.createElement('style');
+  rippleStyle.textContent = '@keyframes ripple{to{transform:scale(1);opacity:0}}';
+  document.head.appendChild(rippleStyle);
+
+  /* ─── Typing cursor effect on hero headline ─── */
+  /* subtle: just animate the italic span colour */
+  var heroEm = document.querySelector('.hero-h1 em');
+  if (heroEm) {
+    var colours = ['#C9A84C','#F0D070','#C9A84C','#e8c46a'];
+    var ci = 0;
+    setInterval(function() {
+      ci = (ci + 1) % colours.length;
+      heroEm.style.color = colours[ci];
+      heroEm.style.transition = 'color 1.2s ease';
+    }, 2000);
+  }
+
+  /* ─── Progress bar on page scroll ─── */
+  var progressBar = document.createElement('div');
+  progressBar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C9A84C,#F0D070);z-index:9999;width:0%;transition:width .1s linear;pointer-events:none';
+  document.body.appendChild(progressBar);
+  window.addEventListener('scroll', function() {
+    var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progressBar.style.width = pct + '%';
+  }, { passive: true });
+</script>
+
+</body>
+</html>
